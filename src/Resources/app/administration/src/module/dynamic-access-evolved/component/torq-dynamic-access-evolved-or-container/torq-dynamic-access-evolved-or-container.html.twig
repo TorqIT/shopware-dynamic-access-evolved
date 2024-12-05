@@ -1,0 +1,29 @@
+
+<div class="torq-dynamic-access-evolved-or-container">
+    <template v-for="(q,index) in filter.queries">
+        <div
+            v-if="index > 0"
+            class="condition-content__spacer--or"
+        >
+            {{ $tc('torq-dynamic-access-evolved.detail.conditions.or') }}
+        </div>
+        <torq-dynamic-access-evolved-and-container 
+            :filter="q" 
+            :index="index"
+            @delete-or-condition="onDeleteOrCondition"
+        >
+        </torq-dynamic-access-evolved-and-container>
+    </template>
+
+    <div class="torq-dynamic-access-evolved-or-container__actions">
+        <sw-button
+            class="torq-dynamic-access-evolved-or-container__actions--or"
+            size="small"
+            variant="ghost"
+            @click="addCondition"
+            :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+        >
+            {{ $tc('torq-dynamic-access-evolved.detail.conditions.buttonAddOrGroup') }}
+        </sw-button>        
+    </div>
+</div>

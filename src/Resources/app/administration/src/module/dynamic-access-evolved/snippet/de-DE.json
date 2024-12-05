@@ -1,0 +1,8 @@
+{
+    "torq-dynamic-access-evolved": {
+        "general": {
+            "mainMenuItemGeneral": "Dynamic Access Evolved",
+            "descriptionTextModule": "Create advanced access rules"
+        }
+    }
+}

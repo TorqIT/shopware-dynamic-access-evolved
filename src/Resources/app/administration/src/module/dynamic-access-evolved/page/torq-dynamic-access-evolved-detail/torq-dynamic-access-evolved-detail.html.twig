@@ -1,0 +1,97 @@
+<sw-page class="torq-dynamic-access-evolved-detail">
+
+	<template #smart-bar-header>
+		<h2>{{ placeholder(dae, 'name', $tc('torq-dynamic-access-evolved.detail.header.titleEdit')) }}</h2>
+	</template>
+
+	<template #smart-bar-actions>
+		<sw-button v-tooltip.bottom="tooltipCancel" class="torq-dynamic-access-evolved-detail__cancel-action" :disabled="dae !== null || undefined" @click="onCancel">
+			{{ $tc('global.default.cancel') }}
+		</sw-button>
+
+		<sw-button-process 
+            v-model:processsuccess="isSaveSuccessful" 
+            v-tooltip.bottom="tooltipSave" 
+            class="torq-dynamic-access-evolved-detail__save-action" 
+            variant="primary" 
+            :is-loading="isLoading" 
+            :disabled="isLoading || !acl.can('torq_dynamic_access_evolved.editor') || undefined" 
+            :process-success="isSaveSuccessful" 
+            @update:process-success="saveFinish" 
+            @click.prevent="onSave">
+			{{ $tc('global.default.save') }}
+		</sw-button-process>
+	</template>
+
+	<template #content>
+
+		<sw-card v-if="dae" position-identifier="torq-dynamic-access-evolved-detail-general" class="torq-dynamic-access-evolved-detail__card-general" :is-loading="isLoading" :title="$tc('torq-dynamic-access-evolved.detail.general.cardTitle')">
+			<sw-container columns="2fr 1fr" gap="0 32px">
+				<sw-text-field 
+                    v-model:value="dae.name" 
+                    class="torq-dynamic-access-evolved-detail__field-name" 
+                    :label="$tc('torq-dynamic-access-evolved.detail.general.nameLabel')" 
+                    :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+                    required :placeholder="placeholder(dae, 'name', $tc('torq-dynamic-access-evolved.detail.general.namePlaceholder'))"
+                />
+			</sw-container>
+			<sw-container columns="1fr 1fr" gap="0 32px">
+				<sw-datepicker 
+                    v-model:value="dae.validFrom" 
+                    class="torq-dynamic-access-evolved-detail__field-valid-from" 
+                    date-type="datetime" 
+                    :label="$tc('torq-dynamic-access-evolved.detail.general.validFromLabel')" 
+                    :placeholder="$tc('torq-dynamic-access-evolved.detail.general.validFromPlaceholder')" 
+                    :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
+                />
+				<sw-datepicker 
+                    v-model:value="dae.validUntil" 
+                    class="torq-dynamic-access-evolved-detail__field-valid-until" 
+                    date-type="datetime" 
+                    :label="$tc('torq-dynamic-access-evolved.detail.general.validUntilLabel')" 
+                    :placeholder="$tc('torq-dynamic-access-evolved.detail.general.validUntilPlaceholder')" 
+                    :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
+                />
+			</sw-container>
+			<sw-switch-field 
+                v-model:value="dae.active" 
+                class="torq-dynamic-access-evolved-detail__field-active" 
+                :label="$tc('torq-dynamic-access-evolved.detail.general.activeLabel')" 
+                :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+                bordered
+            />
+		</sw-card>
+
+		<sw-card v-if="dae && dae.filter" position-identifier="torq-dynamic-access-evolved-detail-conditions" class="torq-dynamic-access-evolved-detail__card-conditions" :is-loading="isLoading" :title="$tc('torq-dynamic-access-evolved.detail.conditions.cardTitle')">
+			<torq-dynamic-access-evolved-sales-channel-select 
+                v-if="dae" 
+                v-model:collection="dae.daeSalesChannels" 
+                :local-mode="dae.isNew()" 
+                :label="$tc('torq-dynamic-access-evolved.detail.conditions.salesChannel.labelSalesChannelSelect')" 
+                :placeholder="$tc('torq-dynamic-access-evolved.detail.conditions.salesChannel.placeholderSalesChannelSelect')"
+                :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+            />
+			<torq-dynamic-access-evolved-rule-select 
+                v-if="dae" 
+                v-model:collection="dae.daeCustomerRules" 
+                :local-mode="dae.isNew()" 
+                :label="$tc('torq-dynamic-access-evolved.detail.conditions.customerRules.labelCustomerSelect')" 
+                :placeholder="$tc('torq-dynamic-access-evolved.detail.conditions.customerRules.placeholderCustomerSelect')" 
+                :rule-scope="['dae_product_access']" 
+                rule-aware-group-key="torq-dynamic-access-evolved-customers"
+                :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+            />
+			<sw-switch-field 
+                name="linkToManufacturerLink"
+                v-model:value="dae.canOnlyAccess" 
+                :label="$tc('torq-dynamic-access-evolved.detail.conditions.canOnlyAccess.labelCanOnlyAccess')"
+                :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+            />
+			<span class="torq-dynamic-access-evolved-detail__can-only-access-label">
+				<strong>{{ canAccessLabel }}</strong>
+			</span>
+			<torq-dynamic-access-evolved-or-container :filter="dae.filter"/>
+		</sw-card>
+
+	</template>
+</sw-page>

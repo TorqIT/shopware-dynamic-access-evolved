@@ -1,0 +1,11 @@
+<sw-entity-multi-select
+    entity="product"
+    size="medium"
+    :entity-collection="products"
+    :criteria="productCriteria"
+    :context="productContext"
+    advanced-selection-component="sw-advanced-selection-product"
+    @update:entity-collection="setIds"
+    :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+    :selectionDisablingMethod="isSelectionDisabled"
+/>

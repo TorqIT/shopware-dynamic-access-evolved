@@ -1,0 +1,11 @@
+<sw-entity-multi-select
+    entity="product_manufacturer"
+    size="medium"
+    :entity-collection="manufacturers"
+    :criteria="manufacturerCriteria"
+    :context="manufacturerContext"
+    resultLimit="100"
+    @update:entity-collection="setIds"
+    :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+    :selectionDisablingMethod="isSelectionDisabled"
+/>

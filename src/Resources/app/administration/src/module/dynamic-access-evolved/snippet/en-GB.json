@@ -1,0 +1,79 @@
+{
+    "torq-dynamic-access-evolved": {
+        "general": {
+            "mainMenuItemGeneral": "Product Access Rules",
+            "descriptionTextModule": "Create advanced product access rules"
+        },
+        "list" :{
+            "placeholderSearchBar": "Search for rules",
+            "textTitle": "Product Access Rules",
+            "buttonAddDynamicAccessEvolved": "Add rule",
+            "titleSidebarItemRefresh": "Refresh",
+            "columnName": "Name",
+            "columnActive": "Active",
+            "columnValidFrom": "Valid From",
+            "columnValidUntil": "Valid Until",
+            "titleEmpty": "No Rules",
+            "descriptionEmpty": "Create product access rules"
+        },
+        "detail":{
+            "header":{
+                "titleEdit": "Edit Product Access Rule",
+                "titleCreate": "Create Product Access Rule"
+            },
+            "general":{
+                "cardTitle": "General Settings",
+                "nameLabel": "Name",
+                "namePlaceholder": "Name For Rule",
+                "validFromLabel": "Valid From",
+                "validFromPlaceholder": "Select Start Date...",
+                "validUntilLabel": "Valid Until",
+                "validUntilPlaceholder": "Select End Date....",
+                "activeLabel": "Active"
+
+            },
+            "conditions":{
+                "salesChannel":{
+                    "labelSalesChannelSelect": "Sales Channels",
+                    "placeholderSalesChannelSelect": "Select Sales Channels..."
+                },
+                "customerRules":{
+                    "labelAddNewRule": "Add New Rule",
+                    "labelCustomerSelect": "Customer Rules",
+                    "placeholderCustomerSelect": "Select Customer Rules..."
+                },
+                "canOnlyAccess":{
+                    "labelCanOnlyAccess": "Can/Cannot Access",
+                    "helpCanOnlyAccess": "Selecting 'Can Access' will only allow customers to access the products in this rule. Selecting 'Cannot Access' will prevent customers from accessing the products in this rule.",
+                    "canAccess": "Customer can only access:",
+                    "cannotAccess": "Customer cannot access:"
+                },
+                "cardTitle": "Conditions",
+                "buttonAddOrGroup": "Add OR Group",
+                "buttonDeleteOrGroup": "Delete OR Group",
+                "or": "OR",
+                "buttonAddAndCondition": "Add AND Condition",
+                "buttonDeleteAndCondition": "Delete AND Condition",
+                "and": "AND",
+                "product": "Product",                
+                "manufacturer": "Manufacturer",                
+                "category": "Category"                
+            }
+        }
+    },
+    "global":{
+        "entities":{
+            "torq_dynamic_access_evolved": "Product Access Rules"
+        }
+    },
+    "sw-privileges": {
+        "permissions": {
+            "torq_dynamic_access_evolved": {
+                "label": "Product Access Rules"
+            },
+            "parents":{
+                "torq_dynamic_access_evolved": "Torq - Product Access Rules"
+            }
+        }
+    }
+}

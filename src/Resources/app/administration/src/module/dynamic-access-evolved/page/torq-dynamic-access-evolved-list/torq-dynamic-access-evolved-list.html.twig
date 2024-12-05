@@ -1,0 +1,81 @@
+<sw-page class="torq-dynamic-access-evolved-list">
+	<template #search-bar>
+		<sw-search-bar initial-search-type="torq_dynamic_access_evolved" :placeholder="$tc('torq-dynamic-access-evolved.list.placeholderSearchBar')" :initial-search="term" @search="onSearch"/>
+	</template>
+
+	<template #smart-bar-header>
+		<h2>
+			{{ $tc('torq-dynamic-access-evolved.list.textTitle') }}
+
+			<span v-if="!isLoading" class="sw-page__smart-bar-amount">
+				({{ total }})
+			</span>
+		</h2>
+	</template>
+
+	<template #smart-bar-actions>
+		<sw-button 
+            v-tooltip="addButtonTooltip" 
+            class="torq-dynamic-access-evolved-list__smart-bar-button-add" 
+            variant="primary" 
+            :router-link="{ name: 'torq.dynamic.access.evolved.create' }" 
+            :disabled="!acl.can('torq_dynamic_access_evolved.creator') || undefined"
+        >
+			{{ $tc('torq-dynamic-access-evolved.list.buttonAddDynamicAccessEvolved') }}
+		</sw-button>
+	</template>
+
+	<template #content>
+		<div class="torq-dynamic-access-evolved-list__content">
+
+			<sw-entity-listing v-if="entitySearchable" :repository="dynamicAccessEvolvedRepository" :columns="dynamicAccessEvolvedColumns" :items="dynamicAccessEvolved" detail-route="torq.dynamic.access.evolved.detail" :is-loading="isLoading" {# :allow-inline-edit="acl.can('promotion.editor') || undefined" #} {# :show-selection="acl.can('promotion.deleter') || undefined" #} {# :allow-edit="acl.can('promotion.editor') || undefined" #} {# :allow-view="acl.can('promotion.viewer') || undefined" #} allow-column-edit full-page @update-records="updateTotal">
+				<template #column-active="{ item }">
+					<sw-icon v-if="item.active" class="torq-dynamic-access-evolved-list__icon-activity is--active" name="regular-checkmark-xs"/>
+					<sw-icon v-else class="torq-dynamic-access-evolved-list__icon-activity is--inactive" name="regular-times-s"/>
+				</template>
+
+				<template #column-validfrom="{ item }">
+					{{ dateFilter(item.validFrom, { hour: '2-digit', minute: '2-digit' }) }}
+				</template>
+
+				<template #column-validuntil="{ item }">
+					{{ dateFilter(item.validUntil, { hour: '2-digit', minute: '2-digit' }) }}
+				</template>
+
+				<template #delete-action="{ item, showDelete }">
+					<sw-context-menu-item 
+                        variant="danger" 
+                        :disabled="(item && item.orderCount > 0) || !acl.can('torq_dynamic_access_evolved.deleter') || undefined" 
+                        @click="showDelete(item.id)"
+                    >
+						{{ $tc('global.default.delete') }}
+					</sw-context-menu-item>
+				</template>
+			</sw-entity-listing>
+
+			<template v-if="!isLoading && !total">
+				<torq-dynamic-access-evolved-empty-state-hero v-if="isValidTerm(term)" :title="$tc('sw-empty-state.messageNoResultTitle')" :description="$tc('sw-empty-state.messageNoResultSubline')"/>
+				<torq-dynamic-access-evolved-empty-state-hero v-else :title="$tc('torq-dynamic-access-evolved.list.titleEmpty')" :description="$tc('torq-dynamic-access-evolved.list.descriptionEmpty')">
+					<template #actions>
+						<sw-button 
+                            v-tooltip="addButtonTooltip" 
+                            class="torq-dynamic-access-evolved-list__empty-state-button-add" 
+                            variant="primary" 
+                            :router-link="{ name: 'torq.dynamic.access.evolved.create' }" 
+                            :disabled="!acl.can('torq_dynamic_access_evolved.creator') || undefined"
+                        >
+							{{ $tc('torq-dynamic-access-evolved.list.buttonAddDynamicAccessEvolved') }}
+						</sw-button>
+					</template>
+				</torq-dynamic-access-evolved-empty-state-hero>
+			</template>
+
+		</div>
+	</template>
+
+	<template #sidebar>
+		<sw-sidebar>
+			<sw-sidebar-item icon="regular-undo" :title="$tc('torq-dynamic-access-evolved.list.list.titleSidebarItemRefresh')" @click="onRefresh"/>
+		</sw-sidebar>
+	</template>
+</sw-page>

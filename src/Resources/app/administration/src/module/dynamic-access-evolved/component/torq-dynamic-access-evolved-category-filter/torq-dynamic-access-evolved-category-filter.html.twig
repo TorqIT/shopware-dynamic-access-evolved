@@ -1,0 +1,48 @@
+<sw-entity-multi-select
+        entity="category"
+        size="medium"
+        :entity-collection="categories"
+        :criteria="categoryCriteria"
+        resultLimit="100"
+        :context="categoryContext"        
+        @update:entity-collection="setIds"
+        :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+        :selectionDisablingMethod="isSelectionDisabled"
+    >
+    <template #result-item="{ item, index, isSelected, addItem, displayLabelProperty, isSelectionDisabled, descriptionPosition, highlightSearchTerm, searchTerm }">
+        <sw-select-result
+            :selected="isSelected(item)"
+            v-bind="{ item, index }"
+            :disabled="isSelectionDisabled(item)"
+            :description-position="descriptionPosition"
+            @item-select="addItem"
+        >
+            <span class="sw-condition-line-item-in-category__result-item">
+                <sw-highlight-text
+                    v-if="highlightSearchTerm"
+                    :text="displayLabelProperty(item)"
+                    :search-term="searchTerm"
+                />
+                <template v-else>
+                    {{ displayLabelProperty(item) }}
+                </template>
+
+                <sw-help-text
+                    v-if="item.productAssignmentType === 'product_stream'"
+                    class="sw-condition-line-item-in-category__help-text"
+                    :text="$tc('global.sw-condition.condition.categoryWithProductStreamTooltip')"
+                />
+            </span>
+
+            <template #description>
+                <slot
+                    name="result-description-property"
+                    v-bind="{ item }"
+                >
+                    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                    {{ getCategoryBreadcrumb(item) }}
+                </slot>
+            </template>
+        </sw-select-result>
+    </template>
+</sw-entity-multi-select>

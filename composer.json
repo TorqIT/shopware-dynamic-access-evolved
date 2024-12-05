@@ -1,0 +1,30 @@
+{
+    "name": "torq/dynamic-access-evolved",
+    "description": "torq/dynamic-access-evolved",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "extra": {
+        "copyright": "(c) by builtbytorq.com",
+        "shopware-plugin-class": "Torq\\DynamicAccessEvolved\\TorqDynamicAccessEvolved",
+        "label": {
+            "en-GB": "Torq - Product Access Rules" 
+        },
+        "description": {
+            "en-GB": "Create rules to control access to products based on customer rules and product filters."
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Torq\\DynamicAccessEvolved\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Torq\\DynamicAccessEvolved\\Tests\\": "tests/"
+        }
+    }
+}

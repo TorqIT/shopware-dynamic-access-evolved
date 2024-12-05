@@ -1,0 +1,49 @@
+@import "~scss/variables";
+
+$torq-dynamic-access-evolved-or-container-background-odd: $color-white;
+
+// $torq-dynamic-access-evolved-or-container-border: #788a9b;
+
+.torq-dynamic-access-evolved-or-container {
+    padding: 24px;
+
+    background-color: $torq-dynamic-access-evolved-or-container-background-odd;
+    border: 1px solid $color-gray-500;
+    border-radius: 4px;
+
+    &.is--disabled {
+        background-color: $color-gray-50;
+    }
+
+    .condition-content__spacer--or {
+        padding: 8px 0;
+        margin-left: 0;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-semi-bold;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        text-transform: uppercase;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: calc(100% - 40px);
+            margin-left: 48px;
+        }
+    }
+
+    .torq-dynamic-access-evolved-or-container__actions {
+        display: flex;
+        margin-top: 16px;
+
+        .torq-dynamic-access-evolved-or-container__actions--or {
+            margin-right: 8px;
+        }
+
+        .torq-dynamic-access-evolved-or-container__actions--delete {
+            float: right;
+        }        
+    }
+}

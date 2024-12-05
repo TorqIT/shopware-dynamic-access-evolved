@@ -1,0 +1,42 @@
+@import "~scss/variables";
+
+
+.torq-dynamic-access-evolved-and-container {
+    padding: 24px;
+    background-color: $color-gray-100;
+    border: 1px solid $color-gray-500;
+    border-radius: 4px;
+
+    &.is--disabled {
+        background-color: $color-gray-50;
+    }
+
+    .torq-dynamic-access-evolved-and-container__condition-content {
+        padding: 32px 32px 16px;
+    }
+
+    .condition-content__spacer--and {
+        padding: 8px 0;
+        margin-left: 0;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-semi-bold;
+        text-transform: uppercase;
+    }
+
+    .torq-dynamic-access-evolved-and-container__actions {
+        display: flex;
+        margin-top: 16px;
+
+        .torq-dynamic-access-evolved-and-container__actions--and {
+            margin-right: 8px;
+        }
+
+        .sw-condition-and-container__actions--delete {
+            float:right;
+        }
+
+        :last-child {
+            margin-left: auto;
+        }
+    }
+}

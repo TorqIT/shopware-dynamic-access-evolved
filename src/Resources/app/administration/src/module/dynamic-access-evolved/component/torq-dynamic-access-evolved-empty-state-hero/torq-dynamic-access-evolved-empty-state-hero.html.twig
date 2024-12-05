@@ -1,0 +1,35 @@
+<div
+    v-bind="$attrs"
+    class="torq-dynamic-access-evolved-empty-state-hero"
+>
+    <div class="torq-dynamic-access-evolved-empty-state-hero__column-content">
+
+        <h1 class="torq-dynamic-access-evolved-empty-state-hero__title">
+            {{ title }}
+        </h1>
+
+        <div
+            v-if="showDescription"
+            class="torq-dynamic-access-evolved-empty-state-hero__description"
+        >
+            {{ description }}
+        </div>
+
+        <div
+            v-if="actionSlotsAvailable"
+            class="torq-dynamic-access-evolved-empty-state-hero__actions"
+        >
+            <slot name="actions">
+            </slot>
+        </div>
+
+    </div>
+
+    <div class="torq-dynamic-access-evolved-empty-state-hero__column-image">
+        <img
+            class="torq-dynamic-access-evolved-empty-state-hero__asset"
+            :src="assetFilter(imagePath)"
+            alt=""
+        >
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="torq-dynamic-access-evolved-rule-select">
+
+    <sw-entity-many-to-many-select
+        v-bind="$attrs"
+        ref="ruleSelect"
+        class="torq-dynamic-access-evolved-rule-select"
+        :entity-collection="collection"
+        :local-mode="localMode"
+        advanced-selection-component="sw-advanced-selection-rule"
+        :advanced-selection-parameters="advanceSelectionParameters"
+        v-on="listeners"
+        @update:entity-collection="onChange"
+    >
+
+        <template #before-item-list>
+
+            <li
+                class="sw-select-result torq-dynamic-access-evolved-rule-select__add-new-rule"
+                role="button"
+                tabindex="0"
+                @click="showRuleModal = true"
+                @keydown.enter="showRuleModal = true"
+            >
+                {{ $tc('torq-dynamic-access-evolved.detail.conditions.customerRules.labelAddNewRule') }}
+            </li>
+
+        </template>
+
+        <template
+            #result-item="{ item, index, labelProperty, valueProperty, searchTerm, highlightSearchTerm, isSelected, addItem, getKey }"
+        >
+            <sw-select-result
+                v-tooltip="tooltipConfig(item)"
+                :selected="isSelected(item)"
+                :disabled="isRuleRestricted(item)"
+                v-bind="{ item, index }"
+                @item-select="addItem"
+            >
+                <slot
+                    name="result-label-property"
+                    v-bind="{ item, index, labelProperty, valueProperty: 'id', searchTerm, highlightSearchTerm, getKey }"
+                >
+                    <sw-highlight-text
+                        v-if="highlightSearchTerm"
+                        :text="getKey(item,labelProperty) || getKey(item, `translated.${labelProperty}`)"
+                        :search-term="searchTerm"
+                    />
+                    <template v-else>
+                        {{ getKey(item,labelProperty) || getKey(item, `translated.${labelProperty}`) }}
+                    </template>
+                </slot>
+            </sw-select-result>
+        </template>
+    </sw-entity-many-to-many-select>
+
+    <sw-rule-modal
+        v-if="showRuleModal"
+        class="torq-dynamic-access-evolved-rule-select__create-modal"
+        :rule-aware-group-key="ruleAwareGroupKey"
+        @save="onSaveRule"
+        @modal-close="showRuleModal = false"
+    />
+
+</div>

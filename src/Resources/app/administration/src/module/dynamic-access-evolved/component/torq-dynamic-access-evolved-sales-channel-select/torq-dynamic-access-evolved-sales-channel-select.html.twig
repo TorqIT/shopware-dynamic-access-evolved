@@ -1,0 +1,15 @@
+<div class="torq-dynamic-access-evolved-sales-channel-select">
+
+    <sw-entity-many-to-many-select
+        v-bind="$attrs"
+        ref="salesChannelSelect"
+        class="torq-dynamic-access-evolved-sales-channel-select"
+        :entity-collection="collection"
+        :local-mode="localMode"
+        v-on="listeners"
+        @update:entity-collection="onChange"
+    >
+
+    </sw-entity-many-to-many-select>
+
+</div>
