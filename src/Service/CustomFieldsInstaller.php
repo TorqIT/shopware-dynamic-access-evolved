@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\DynamicAccessEvolved\Service;
+namespace Torq\Shopware\DynamicAccessEvolved\Service;
 
 use Shopware\Core\Defaults;
 use Shopware\Core\Framework\Context;

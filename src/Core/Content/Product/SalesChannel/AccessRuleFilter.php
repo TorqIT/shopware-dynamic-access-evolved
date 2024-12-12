@@ -5,7 +5,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Torq\DynamicAccessEvolved\Core\Content\Product\SalesChannel;
+namespace Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel;
 
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\Filter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\MultiFilter;

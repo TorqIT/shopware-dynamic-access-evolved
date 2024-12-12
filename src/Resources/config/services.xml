@@ -6,18 +6,18 @@
 
     <services>
 
-        <service id="Torq\DynamicAccessEvolved\ScheduledTask\ExampleTask">
+        <service id="Torq\Shopware\DynamicAccessEvolved\ScheduledTask\ExampleTask">
             <tag name="shopware.scheduled.task"/>
         </service>
 
-        <service id="Torq\DynamicAccessEvolved\Subscriber\DynamicAccessEvolvedSubscriber">
+        <service id="Torq\Shopware\DynamicAccessEvolved\Subscriber\DynamicAccessEvolvedSubscriber">
             <argument type="service" id="torq_dynamic_access_evolved.repository"/>
             <argument type="service" id="Shopware\Core\Content\Product\ProductDefinition"/>
             <argument type="service" id="Shopware\Core\Content\Product\SalesChannel\SalesChannelProductDefinition"/>
             <tag name="kernel.event_subscriber"/>
         </service>
 
-        <service id="Torq\DynamicAccessEvolved\Storefront\Controller\ExampleController" public="true">
+        <service id="Torq\Shopware\DynamicAccessEvolved\Storefront\Controller\ExampleController" public="true">
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -26,31 +26,31 @@
              </call>
         </service>
 
-        <service id="Torq\DynamicAccessEvolved\Core\Content\Product\SalesChannel\ExampleRoute">
+        <service id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\ExampleRoute">
             <argument type="service" id="product.repository"/>
         </service>
 
-        <service id="Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition">
+        <service id="Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition">
             <tag name="shopware.entity.definition" entity="torq_dynamic_access_evolved" />
         </service>
 
-        <service id="Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolvedCustomerRule\DynamicAccessEvolvedCustomerRuleDefinition">
+        <service id="Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolvedCustomerRule\DynamicAccessEvolvedCustomerRuleDefinition">
             <tag name="shopware.entity.definition" entity="torq_dynamic_access_evolved_customer_rule" />
         </service>
 
-        <service id="Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel\DynamicAccessEvolvedSalesChannelDefinition">
+        <service id="Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel\DynamicAccessEvolvedSalesChannelDefinition">
             <tag name="shopware.entity.definition" entity="torq_dynamic_access_evolved_sales_channel" />
         </service>
 
-        <service id="Torq\DynamicAccessEvolved\Entity\Extension\RuleExtension">
+        <service id="Torq\Shopware\DynamicAccessEvolved\Entity\Extension\RuleExtension">
             <tag name="shopware.entity.extension" />
         </service>
 
-        <service id="Torq\DynamicAccessEvolved\Entity\Extension\SalesChannelExtension">
+        <service id="Torq\Shopware\DynamicAccessEvolved\Entity\Extension\SalesChannelExtension">
             <tag name="shopware.entity.extension" />
         </service>
 
-        <!-- <service id="Torq\DynamicAccessEvolved\Service\CustomFieldsInstaller">
+        <!-- <service id="Torq\Shopware\DynamicAccessEvolved\Service\CustomFieldsInstaller">
             <argument type="service" id="custom_field_set.repository"/>
             <argument type="service" id="custom_field_set_relation.repository"/>
         </service> -->

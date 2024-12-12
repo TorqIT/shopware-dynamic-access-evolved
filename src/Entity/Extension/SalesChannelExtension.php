@@ -5,15 +5,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Torq\DynamicAccessEvolved\Entity\Extension;
+namespace Torq\Shopware\DynamicAccessEvolved\Entity\Extension;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\CascadeDelete;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToManyAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
-use Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition;
-use Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel\DynamicAccessEvolvedSalesChannelDefinition;
+use Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition;
+use Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel\DynamicAccessEvolvedSalesChannelDefinition;
 
 class SalesChannelExtension extends EntityExtension
 {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\DynamicAccessEvolved\Storefront\Controller;
+namespace Torq\Shopware\DynamicAccessEvolved\Storefront\Controller;
 
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Storefront\Controller\StorefrontController;

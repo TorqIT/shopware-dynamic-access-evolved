@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolved;
+namespace Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved;
 
 use Shopware\Core\Content\Rule\RuleDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
@@ -16,9 +16,9 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\JsonField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToManyAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
-use Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedEntity;
-use Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolvedCustomerRule\DynamicAccessEvolvedCustomerRuleDefinition;
-use Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel\DynamicAccessEvolvedSalesChannelDefinition;
+use Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedEntity;
+use Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolvedCustomerRule\DynamicAccessEvolvedCustomerRuleDefinition;
+use Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel\DynamicAccessEvolvedSalesChannelDefinition;
 
 class DynamicAccessEvolvedDefinition extends EntityDefinition
 {

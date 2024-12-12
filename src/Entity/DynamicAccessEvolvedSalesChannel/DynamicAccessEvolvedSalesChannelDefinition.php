@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel;
+namespace Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel;
 
 use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
@@ -9,9 +9,9 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\MappingEntityDefinition;
 use Shopware\Core\System\SalesChannel\SalesChannelDefinition;
-use Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition;
+use Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition;
 
-/** @package Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel */
+/** @package Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolvedSalesChannel */
 class DynamicAccessEvolvedSalesChannelDefinition extends MappingEntityDefinition
 {
     final public const ENTITY_NAME = 'torq_dynamic_access_evolved_sales_channel';

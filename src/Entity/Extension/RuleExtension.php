@@ -5,7 +5,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Torq\DynamicAccessEvolved\Entity\Extension;
+namespace Torq\Shopware\DynamicAccessEvolved\Entity\Extension;
 
 use Shopware\Core\Content\Rule\RuleDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;
@@ -13,8 +13,8 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\CascadeDelete;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\RuleAreas;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToManyAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
-use Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition;
-use Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolvedCustomerRule\DynamicAccessEvolvedCustomerRuleDefinition;
+use Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition;
+use Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolvedCustomerRule\DynamicAccessEvolvedCustomerRuleDefinition;
 
 class RuleExtension extends EntityExtension
 {

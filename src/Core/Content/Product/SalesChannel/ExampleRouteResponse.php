@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\DynamicAccessEvolved\Core\Content\Product\SalesChannel;
+namespace Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel;
 
 use Shopware\Core\Content\Product\ProductCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;

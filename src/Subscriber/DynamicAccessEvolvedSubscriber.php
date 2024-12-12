@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\DynamicAccessEvolved\Subscriber;
+namespace Torq\Shopware\DynamicAccessEvolved\Subscriber;
 
 use Shopware\Commercial\AdvancedSearch\Entity\SearchAction\Aggregate\ActionSearchTermDefinition;
 use Shopware\Commercial\AdvancedSearch\Event\MultiContentSuggestCriteriaEvent;
@@ -23,7 +23,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\RangeFilter;
 use Shopware\Core\System\SalesChannel\Event\SalesChannelProcessCriteriaEvent;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Parser\QueryStringParser;
-use Torq\DynamicAccessEvolved\Core\Content\Product\SalesChannel\AccessRuleFilter;
+use Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\AccessRuleFilter;
 
 class DynamicAccessEvolvedSubscriber implements EventSubscriberInterface
 {

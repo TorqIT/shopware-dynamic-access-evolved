@@ -2,14 +2,14 @@
     "name": "torq/dynamic-access-evolved",
     "description": "torq/dynamic-access-evolved",
     "type": "shopware-platform-plugin",
-    "version": "v0.5",
+    "version": "v0.6-dev",
     "license": "MIT",
     "require": {
         "shopware/core": "~6.6.0"
     },
     "extra": {
         "copyright": "(c) by builtbytorq.com",
-        "shopware-plugin-class": "Torq\\DynamicAccessEvolved\\TorqDynamicAccessEvolved",
+        "shopware-plugin-class": "Torq\\Shopware\\DynamicAccessEvolved\\TorqDynamicAccessEvolved",
         "label": {
             "en-GB": "Torq - Product Access Rules" 
         },
@@ -19,12 +19,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Torq\\DynamicAccessEvolved\\": "src/"
+            "Torq\\Shopware\\DynamicAccessEvolved\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Torq\\DynamicAccessEvolved\\Tests\\": "tests/"
+            "Torq\\Shopware\\DynamicAccessEvolved\\Tests\\": "tests/"
         }
     }
 }

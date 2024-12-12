@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\DynamicAccessEvolved\Entity\DynamicAccessEvolved;
+namespace Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved;
 
 use Shopware\Core\Content\Rule\RuleCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;

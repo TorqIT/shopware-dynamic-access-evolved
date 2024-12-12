@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\DynamicAccessEvolved;
+namespace Torq\Shopware\DynamicAccessEvolved;
 
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
@@ -8,7 +8,7 @@ use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\Framework\Plugin\Context\UpdateContext;
-use Torq\DynamicAccessEvolved\Service\CustomFieldsInstaller;
+use Torq\Shopware\DynamicAccessEvolved\Service\CustomFieldsInstaller;
 
 class TorqDynamicAccessEvolved extends Plugin
 {
