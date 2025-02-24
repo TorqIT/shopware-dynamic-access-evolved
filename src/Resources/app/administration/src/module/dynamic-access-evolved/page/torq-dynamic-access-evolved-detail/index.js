@@ -186,6 +186,8 @@ export default {
 
 
             try {
+                if(this.dae.canOnlyAccess == null)
+                    this.dae.canOnlyAccess = false;
                 await this.daeRepository.save(this.dae);
                 this.isSaveSuccessful = true;
                 await this.loadEntityData();
