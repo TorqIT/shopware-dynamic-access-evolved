@@ -6,10 +6,6 @@
 
     <services>
 
-        <service id="Torq\Shopware\DynamicAccessEvolved\ScheduledTask\ExampleTask">
-            <tag name="shopware.scheduled.task"/>
-        </service>
-
         <service id="Torq\Shopware\DynamicAccessEvolved\Subscriber\DynamicAccessEvolvedSubscriber">
             <argument type="service" id="torq_dynamic_access_evolved.repository"/>
             <argument type="service" id="Shopware\Core\Content\Product\ProductDefinition"/>
