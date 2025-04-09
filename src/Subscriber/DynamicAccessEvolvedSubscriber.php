@@ -39,7 +39,14 @@ class DynamicAccessEvolvedSubscriber implements EventSubscriberInterface
     {
         return [
             'sales_channel.product.process.criteria' => 'onProductProcessCriteria',
+            ProductEvents::PRODUCT_SUGGEST_CRITERIA => 'onProductSuggestCriteria'
         ];
+    }
+
+    public function onProductSuggestCriteria(ProductSuggestCriteriaEvent $event): void
+    {
+        //this title was set to null, giving it a name so we can find in onProductProcessCriteria
+        $event->getCriteria()->setTitle("product-suggest");
     }
 
     public function onProductProcessCriteria(SalesChannelProcessCriteriaEvent $event): void
@@ -58,7 +65,9 @@ class DynamicAccessEvolvedSubscriber implements EventSubscriberInterface
             Shopware\Core\System\SalesChannel\Entity\SalesChannelRepository->_search( ) does not return any ids when 
             the access rules are set in the criteria object.
         */
-        if (!$this->hasFilter($criteria, AccessRuleFilter::class) && empty($criteria->getIds()) && $criteria->getTitle() === "search-page") {
+        if (!$this->hasFilter($criteria, AccessRuleFilter::class) && 
+            (empty($criteria->getIds()) 
+                || (!empty($criteria->getIds()) && $criteria->getTitle() !== "search-page" && $criteria->getTitle() !== "product-suggest" ))) {
             $this->getMatchingProductAccessRules($event->getSalesChannelContext());
 
             foreach($this->productAccessRules as $rule) {
