@@ -1,0 +1,25 @@
+{
+  "base": "/bundles/torqdynamicaccessevolved/administration/",
+  "entryPoints": {
+    "torq-dynamic-access-evolved": {
+      "css": [
+        "/bundles/torqdynamicaccessevolved/administration/css/torq-dynamic-access-evolved.css"
+      ],
+      "dynamic": [],
+      "js": [
+        "/bundles/torqdynamicaccessevolved/administration/js/torq-dynamic-access-evolved.js"
+      ],
+      "legacy": false,
+      "preload": []
+    }
+  },
+  "legacy": false,
+  "metadatas": {},
+  "version": [
+    "7.0.4",
+    7,
+    0,
+    4
+  ],
+  "viteServer": null
+}

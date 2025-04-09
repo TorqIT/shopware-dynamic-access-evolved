@@ -1,0 +1,11 @@
+{
+  "main.js": {
+    "file": "js/torq-dynamic-access-evolved.js",
+    "name": "torq-dynamic-access-evolved",
+    "src": "main.js",
+    "isEntry": true,
+    "css": [
+      "css/torq-dynamic-access-evolved.css"
+    ]
+  }
+}
