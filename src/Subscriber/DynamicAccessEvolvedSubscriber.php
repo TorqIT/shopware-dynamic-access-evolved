@@ -64,10 +64,13 @@ class DynamicAccessEvolvedSubscriber implements EventSubscriberInterface
             This is because this call     $ids = $this->doSearch($criteria, $salesChannelContext);   in 
             Shopware\Core\System\SalesChannel\Entity\SalesChannelRepository->_search( ) does not return any ids when 
             the access rules are set in the criteria object.
+
+            I don't think my change below works right... cart then has problems finding products there listed on teh list page
         */
-        if (!$this->hasFilter($criteria, AccessRuleFilter::class) && 
-            (empty($criteria->getIds()) 
-                || (!empty($criteria->getIds()) && $criteria->getTitle() !== "search-page" && $criteria->getTitle() !== "product-suggest" ))) {
+        if (!$this->hasFilter($criteria, AccessRuleFilter::class) 
+            //&& (empty($criteria->getIds()) 
+            //    || (!empty($criteria->getIds()) && $criteria->getTitle() !== "search-page" && $criteria->getTitle() !== "product-suggest" ))
+            ) {
             $this->getMatchingProductAccessRules($event->getSalesChannelContext());
 
             foreach($this->productAccessRules as $rule) {
