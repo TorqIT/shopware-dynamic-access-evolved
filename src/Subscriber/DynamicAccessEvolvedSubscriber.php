@@ -4,7 +4,9 @@ namespace Torq\Shopware\DynamicAccessEvolved\Subscriber;
 
 use Shopware\Commercial\AdvancedSearch\Entity\SearchAction\Aggregate\ActionSearchTermDefinition;
 use Shopware\Commercial\AdvancedSearch\Event\MultiContentSuggestCriteriaEvent;
+use Shopware\Core\Content\Product\Events\ProductListingCriteriaEvent;
 use Shopware\Core\Content\Product\Events\ProductSuggestCriteriaEvent;
+use Shopware\Core\Content\Product\Events\ProductSearchCriteriaEvent;
 use Shopware\Core\Content\Product\ProductDefinition;
 use Shopware\Core\Content\Product\ProductEvents;
 use Shopware\Core\Content\Product\SalesChannel\SalesChannelProductDefinition;
@@ -39,6 +41,8 @@ class DynamicAccessEvolvedSubscriber implements EventSubscriberInterface
     {
         return [
             'sales_channel.product.process.criteria' => 'onProductProcessCriteria',
+            ProductEvents::PRODUCT_LISTING_CRITERIA => 'onProductListingCriteria',
+            ProductEvents::PRODUCT_SEARCH_CRITERIA => 'onProductSearchCriteria',
         ];
     }
 
@@ -55,6 +59,32 @@ class DynamicAccessEvolvedSubscriber implements EventSubscriberInterface
 
             foreach($this->productAccessRules as $rule) {
 
+                $filter = QueryStringParser::fromArray($this->productDefinition, $rule->getFilter(), new SearchRequestException());
+
+                $criteria->addFilter(new AccessRuleFilter(
+                    $rule->isCanOnlyAccess(),
+                    $filter
+                ));
+            }
+        }
+    }
+
+    public function onProductListingCriteria(ProductListingCriteriaEvent $event): void
+    {
+        $this->applyAccessRulesEarly($event->getCriteria(), $event->getSalesChannelContext());
+    }
+
+    public function onProductSearchCriteria(ProductSearchCriteriaEvent $event): void
+    {
+        $this->applyAccessRulesEarly($event->getCriteria(), $event->getSalesChannelContext());
+    }
+
+    private function applyAccessRulesEarly(Criteria $criteria, SalesChannelContext $context): void
+    {
+        if (!$this->hasFilter($criteria, AccessRuleFilter::class)) {
+            $this->getMatchingProductAccessRules($context);
+
+            foreach($this->productAccessRules as $rule) {
                 $filter = QueryStringParser::fromArray($this->productDefinition, $rule->getFilter(), new SearchRequestException());
 
                 $criteria->addFilter(new AccessRuleFilter(

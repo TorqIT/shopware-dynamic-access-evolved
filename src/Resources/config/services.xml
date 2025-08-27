@@ -46,6 +46,15 @@
             <tag name="shopware.entity.extension" />
         </service>
 
+        <!-- Route Decorators for Dynamic Access Rules -->
+        <service id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Listing\DynamicAccessProductListingRoute" decorates="Shopware\Core\Content\Product\SalesChannel\Listing\ProductListingRoute">
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Listing\DynamicAccessProductListingRoute.inner"/>
+        </service>
+
+        <service id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Search\DynamicAccessProductSearchRoute" decorates="Shopware\Core\Content\Product\SalesChannel\Search\ProductSearchRoute">
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Search\DynamicAccessProductSearchRoute.inner"/>
+        </service>
+
         <!-- <service id="Torq\Shopware\DynamicAccessEvolved\Service\CustomFieldsInstaller">
             <argument type="service" id="custom_field_set.repository"/>
             <argument type="service" id="custom_field_set_relation.repository"/>
