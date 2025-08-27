@@ -2,16 +2,10 @@
 
 namespace Torq\Shopware\DynamicAccessEvolved\Subscriber;
 
-use Shopware\Commercial\AdvancedSearch\Entity\SearchAction\Aggregate\ActionSearchTermDefinition;
-use Shopware\Commercial\AdvancedSearch\Event\MultiContentSuggestCriteriaEvent;
-use Shopware\Core\Content\Product\Events\ProductSuggestCriteriaEvent;
 use Shopware\Core\Content\Product\ProductDefinition;
-use Shopware\Core\Content\Product\ProductEvents;
 use Shopware\Core\Content\Product\SalesChannel\SalesChannelProductDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Dbal\Common\RepositoryIterator;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
-use Shopware\Core\Framework\DataAbstractionLayer\Event\EntitySearchedEvent;
 use Shopware\Core\Framework\DataAbstractionLayer\Exception\SearchRequestException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -54,7 +48,6 @@ class DynamicAccessEvolvedSubscriber implements EventSubscriberInterface
             $this->getMatchingProductAccessRules($event->getSalesChannelContext());
 
             foreach($this->productAccessRules as $rule) {
-
                 $filter = QueryStringParser::fromArray($this->productDefinition, $rule->getFilter(), new SearchRequestException());
 
                 $criteria->addFilter(new AccessRuleFilter(

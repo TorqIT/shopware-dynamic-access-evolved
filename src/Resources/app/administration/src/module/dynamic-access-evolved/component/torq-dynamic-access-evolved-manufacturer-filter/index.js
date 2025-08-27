@@ -27,7 +27,7 @@ export default {
     data() {
         return {
             manufacturers: null,
-            manufacturerIds: this.filter.value == "" ? [] : this.filter.value.split('|')
+            manufacturerIds: this.getManufacturerIdsFromFilter()
         }
     },
 
@@ -54,6 +54,27 @@ export default {
     },
 
     methods: {
+        getManufacturerIdsFromFilter() {
+            // Handle new format (queries array)
+            if (this.filter.queries && this.filter.queries.length > 0) {
+                const firstQuery = this.filter.queries[0];
+                if (firstQuery.value) {
+                    // Value could be a string or array
+                    if (Array.isArray(firstQuery.value)) {
+                        return firstQuery.value;
+                    } else if (typeof firstQuery.value === 'string') {
+                        return firstQuery.value.split('|').filter(id => id.length > 0);
+                    }
+                }
+                return [];
+            }
+            // Handle old format (direct value property) for backwards compatibility
+            else if (this.filter.value && this.filter.value !== "") {
+                return this.filter.value.split('|').filter(id => id.length > 0);
+            }
+            
+            return [];
+        },
         createdComponent() {
             this.manufacturers = new EntityCollection(
                 this.manufacturerRepository.route,
@@ -77,7 +98,16 @@ export default {
         setIds(manufacturerCollection) {
             this.manufacturerIds = manufacturerCollection.getIds();
             this.manufacturers = manufacturerCollection;
-            this.filter.value = manufacturerCollection.getIds().join('|');
+            
+            const manufacturerIds = manufacturerCollection.getIds();
+            
+            // Use proper Criteria structure like the category filter does
+            this.filter.type = "multi";
+            this.filter.operator = "or";
+            
+            this.filter.queries = [
+                Criteria.equalsAny('manufacturer.id', manufacturerIds)
+            ];
         },
         isSelectionDisabled() {
             return !this.acl.can('torq_dynamic_access_evolved.editor');
