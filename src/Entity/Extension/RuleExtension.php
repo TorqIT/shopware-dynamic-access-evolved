@@ -23,6 +23,11 @@ class RuleExtension extends EntityExtension
         return RuleDefinition::class;
     }
 
+    public function getEntityName(): string
+    {
+        return 'rule';
+    }
+
     public function extendFields(FieldCollection $collection): void
     {
         $collection->add(

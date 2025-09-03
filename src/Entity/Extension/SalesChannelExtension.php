@@ -22,6 +22,11 @@ class SalesChannelExtension extends EntityExtension
         return SalesChannelDefinition::class;
     }
 
+    public function getEntityName(): string
+    {
+        return 'sales_channel';
+    }
+
     public function extendFields(FieldCollection $collection): void
     {
         $collection->add(
