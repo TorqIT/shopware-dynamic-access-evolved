@@ -13,15 +13,6 @@
             <tag name="kernel.event_subscriber"/>
         </service>
 
-        <service id="Torq\Shopware\DynamicAccessEvolved\Storefront\Controller\ExampleController" public="true">
-            <call method="setContainer">
-                <argument type="service" id="service_container"/>
-            </call>
-            <call method="setTwig">
-                 <argument type="service" id="twig"/>
-             </call>
-        </service>
-
         <service id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\ExampleRoute">
             <argument type="service" id="product.repository"/>
         </service>
