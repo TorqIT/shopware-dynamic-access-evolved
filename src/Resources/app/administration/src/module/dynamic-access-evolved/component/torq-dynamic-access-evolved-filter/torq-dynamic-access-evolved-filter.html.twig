@@ -4,8 +4,8 @@
     value-property="filterField"
     label-property="filterName"
     :options="filterTypes"
-    v-model:value="filter.field"
-    :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+    v-model="filter.field"
+    :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
 />
 
 <div v-if="filter.field === 'id'">

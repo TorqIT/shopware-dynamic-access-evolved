@@ -27,37 +27,37 @@
 
 		<sw-card v-if="dae" position-identifier="torq-dynamic-access-evolved-detail-general" class="torq-dynamic-access-evolved-detail__card-general" :is-loading="isLoading" :title="$tc('torq-dynamic-access-evolved.detail.general.cardTitle')">
 			<sw-container columns="2fr 1fr" gap="0 32px">
-				<sw-text-field 
-                    v-model:value="dae.name" 
-                    class="torq-dynamic-access-evolved-detail__field-name" 
-                    :label="$tc('torq-dynamic-access-evolved.detail.general.nameLabel')" 
-                    :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+				<sw-text-field
+                    v-model="dae.name"
+                    class="torq-dynamic-access-evolved-detail__field-name"
+                    :label="$tc('torq-dynamic-access-evolved.detail.general.nameLabel')"
+                    :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
                     required :placeholder="placeholder(dae, 'name', $tc('torq-dynamic-access-evolved.detail.general.namePlaceholder'))"
                 />
 			</sw-container>
 			<sw-container columns="1fr 1fr" gap="0 32px">
-				<sw-datepicker 
-                    v-model:value="dae.validFrom" 
-                    class="torq-dynamic-access-evolved-detail__field-valid-from" 
-                    date-type="datetime" 
-                    :label="$tc('torq-dynamic-access-evolved.detail.general.validFromLabel')" 
-                    :placeholder="$tc('torq-dynamic-access-evolved.detail.general.validFromPlaceholder')" 
+				<sw-datepicker
+                    v-model="dae.validFrom"
+                    class="torq-dynamic-access-evolved-detail__field-valid-from"
+                    date-type="datetime"
+                    :label="$tc('torq-dynamic-access-evolved.detail.general.validFromLabel')"
+                    :placeholder="$tc('torq-dynamic-access-evolved.detail.general.validFromPlaceholder')"
                     :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
                 />
-				<sw-datepicker 
-                    v-model:value="dae.validUntil" 
-                    class="torq-dynamic-access-evolved-detail__field-valid-until" 
-                    date-type="datetime" 
-                    :label="$tc('torq-dynamic-access-evolved.detail.general.validUntilLabel')" 
-                    :placeholder="$tc('torq-dynamic-access-evolved.detail.general.validUntilPlaceholder')" 
+				<sw-datepicker
+                    v-model="dae.validUntil"
+                    class="torq-dynamic-access-evolved-detail__field-valid-until"
+                    date-type="datetime"
+                    :label="$tc('torq-dynamic-access-evolved.detail.general.validUntilLabel')"
+                    :placeholder="$tc('torq-dynamic-access-evolved.detail.general.validUntilPlaceholder')"
                     :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
                 />
 			</sw-container>
-			<sw-switch-field 
-                v-model:value="dae.active" 
-                class="torq-dynamic-access-evolved-detail__field-active" 
-                :label="$tc('torq-dynamic-access-evolved.detail.general.activeLabel')" 
-                :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+			<sw-switch-field
+                v-model="dae.active"
+                class="torq-dynamic-access-evolved-detail__field-active"
+                :label="$tc('torq-dynamic-access-evolved.detail.general.activeLabel')"
+                :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
                 bordered
             />
 		</sw-card>
@@ -81,11 +81,11 @@
                 rule-aware-group-key="torq-dynamic-access-evolved-customers"
                 :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
             />
-			<sw-switch-field 
+			<sw-switch-field
                 name="linkToManufacturerLink"
-                v-model:value="dae.canOnlyAccess" 
+                v-model="dae.canOnlyAccess"
                 :label="$tc('torq-dynamic-access-evolved.detail.conditions.canOnlyAccess.labelCanOnlyAccess')"
-                :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+                :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
             />
 			<span class="torq-dynamic-access-evolved-detail__can-only-access-label">
 				<strong>{{ canAccessLabel }}</strong>
