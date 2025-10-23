@@ -2,12 +2,22 @@
   "base": "/bundles/torqdynamicaccessevolved/administration/",
   "entryPoints": {
     "torq-dynamic-access-evolved": {
-      "css": [
-        "/bundles/torqdynamicaccessevolved/administration/css/torq-dynamic-access-evolved.css"
+      "css": [],
+      "dynamic": [
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-CbkMqIbx.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-DAYAJncd.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-Bg3gdU2N.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-u-PwT3Rq.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-xWUQCQp1.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-DS1TMK-c.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-mw5Jss1i.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-Oh0rFXZB.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-7S6RSUjE.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-BDHgFUde.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-Dkyn1RSQ.js"
       ],
-      "dynamic": [],
       "js": [
-        "/bundles/torqdynamicaccessevolved/administration/js/torq-dynamic-access-evolved.js"
+        "/bundles/torqdynamicaccessevolved/administration/assets/torq-dynamic-access-evolved-B3mZTniK.js"
       ],
       "legacy": false,
       "preload": []
@@ -16,10 +26,10 @@
   "legacy": false,
   "metadatas": {},
   "version": [
-    "7.0.4",
+    "7.1.0",
     7,
-    0,
-    4
+    1,
+    0
   ],
   "viteServer": null
 }

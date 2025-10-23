@@ -37,11 +37,7 @@ export default {
     computed: {
 
         listeners() {
-            if (this.isCompatEnabled('INSTANCE_LISTENERS')) {
-                return this.$listeners;
-            }
-
-            return {};
+            return this.$listeners ?? {};
         },
     },
 

@@ -1,11 +1,117 @@
 {
   "main.js": {
-    "file": "js/torq-dynamic-access-evolved.js",
+    "file": "assets/torq-dynamic-access-evolved-B3mZTniK.js",
     "name": "torq-dynamic-access-evolved",
     "src": "main.js",
     "isEntry": true,
+    "dynamicImports": [
+      "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js",
+      "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-empty-state-hero/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-or-container/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-and-container/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-filter/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-product-filter/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-category-filter/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-manufacturer-filter/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-sales-channel-select/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-rule-select/index.js"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-and-container/index.js": {
+    "file": "assets/index-xWUQCQp1.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-and-container/index.js",
+    "isDynamicEntry": true,
     "css": [
-      "css/torq-dynamic-access-evolved.css"
+      "assets/index-BPMo76do.css"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-category-filter/index.js": {
+    "file": "assets/index-Oh0rFXZB.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-category-filter/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-tn0RQdqM.css"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-empty-state-hero/index.js": {
+    "file": "assets/index-Bg3gdU2N.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-empty-state-hero/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-BnsB26Hh.css"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-filter/index.js": {
+    "file": "assets/index-DS1TMK-c.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-filter/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-tn0RQdqM.css"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-manufacturer-filter/index.js": {
+    "file": "assets/index-7S6RSUjE.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-manufacturer-filter/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-tn0RQdqM.css"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-or-container/index.js": {
+    "file": "assets/index-u-PwT3Rq.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-or-container/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-DBCVfJ1v.css"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-product-filter/index.js": {
+    "file": "assets/index-mw5Jss1i.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-product-filter/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-tn0RQdqM.css"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-rule-select/index.js": {
+    "file": "assets/index-Dkyn1RSQ.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-rule-select/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-DRXIhlFU.css"
+    ]
+  },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-sales-channel-select/index.js": {
+    "file": "assets/index-BDHgFUde.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-sales-channel-select/index.js",
+    "isDynamicEntry": true
+  },
+  "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js": {
+    "file": "assets/index-DAYAJncd.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-DYXcuplM.css"
+    ]
+  },
+  "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js": {
+    "file": "assets/index-CbkMqIbx.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-x9ygovC2.css"
     ]
   }
 }
