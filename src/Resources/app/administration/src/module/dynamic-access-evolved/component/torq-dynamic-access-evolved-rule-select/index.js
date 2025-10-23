@@ -56,10 +56,6 @@ export default {
                 ruleAwareGroupKey: this.ruleAwareGroupKey,
             };
         },
-
-        listeners() {
-            return this.$listeners ?? {};
-        },
     },
 
     methods: {
