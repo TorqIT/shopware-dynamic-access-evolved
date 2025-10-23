@@ -14,15 +14,15 @@
 	</template>
 
 	<template #smart-bar-actions>
-		<sw-button 
-            v-tooltip="addButtonTooltip" 
-            class="torq-dynamic-access-evolved-list__smart-bar-button-add" 
-            variant="primary" 
-            :router-link="{ name: 'torq.dynamic.access.evolved.create' }" 
+		<mt-button
+            v-tooltip="addButtonTooltip"
+            class="torq-dynamic-access-evolved-list__smart-bar-button-add"
+            variant="primary"
+            :router-link="{ name: 'torq.dynamic.access.evolved.create' }"
             :disabled="!acl.can('torq_dynamic_access_evolved.creator') || undefined"
         >
 			{{ $tc('torq-dynamic-access-evolved.list.buttonAddDynamicAccessEvolved') }}
-		</sw-button>
+		</mt-button>
 	</template>
 
 	<template #content>
@@ -30,8 +30,8 @@
 
 			<sw-entity-listing v-if="entitySearchable" :repository="dynamicAccessEvolvedRepository" :columns="dynamicAccessEvolvedColumns" :items="dynamicAccessEvolved" detail-route="torq.dynamic.access.evolved.detail" :is-loading="isLoading" {# :allow-inline-edit="acl.can('promotion.editor') || undefined" #} {# :show-selection="acl.can('promotion.deleter') || undefined" #} {# :allow-edit="acl.can('promotion.editor') || undefined" #} {# :allow-view="acl.can('promotion.viewer') || undefined" #} allow-column-edit full-page @update-records="updateTotal">
 				<template #column-active="{ item }">
-					<sw-icon v-if="item.active" class="torq-dynamic-access-evolved-list__icon-activity is--active" name="regular-checkmark-xs"/>
-					<sw-icon v-else class="torq-dynamic-access-evolved-list__icon-activity is--inactive" name="regular-times-s"/>
+					<mt-icon v-if="item.active" class="torq-dynamic-access-evolved-list__icon-activity is--active" name="regular-checkmark-xs"/>
+					<mt-icon v-else class="torq-dynamic-access-evolved-list__icon-activity is--inactive" name="regular-times-s"/>
 				</template>
 
 				<template #column-validfrom="{ item }">
@@ -57,15 +57,15 @@
 				<torq-dynamic-access-evolved-empty-state-hero v-if="isValidTerm(term)" :title="$tc('sw-empty-state.messageNoResultTitle')" :description="$tc('sw-empty-state.messageNoResultSubline')"/>
 				<torq-dynamic-access-evolved-empty-state-hero v-else :title="$tc('torq-dynamic-access-evolved.list.titleEmpty')" :description="$tc('torq-dynamic-access-evolved.list.descriptionEmpty')">
 					<template #actions>
-						<sw-button 
-                            v-tooltip="addButtonTooltip" 
-                            class="torq-dynamic-access-evolved-list__empty-state-button-add" 
-                            variant="primary" 
-                            :router-link="{ name: 'torq.dynamic.access.evolved.create' }" 
+						<mt-button
+                            v-tooltip="addButtonTooltip"
+                            class="torq-dynamic-access-evolved-list__empty-state-button-add"
+                            variant="primary"
+                            :router-link="{ name: 'torq.dynamic.access.evolved.create' }"
                             :disabled="!acl.can('torq_dynamic_access_evolved.creator') || undefined"
                         >
 							{{ $tc('torq-dynamic-access-evolved.list.buttonAddDynamicAccessEvolved') }}
-						</sw-button>
+						</mt-button>
 					</template>
 				</torq-dynamic-access-evolved-empty-state-hero>
 			</template>

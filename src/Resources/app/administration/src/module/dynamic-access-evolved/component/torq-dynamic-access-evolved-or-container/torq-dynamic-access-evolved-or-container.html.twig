@@ -16,14 +16,14 @@
     </template>
 
     <div class="torq-dynamic-access-evolved-or-container__actions">
-        <sw-button
+        <mt-button
             class="torq-dynamic-access-evolved-or-container__actions--or"
             size="small"
             variant="ghost"
             @click="addCondition"
-            :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+            :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
         >
             {{ $tc('torq-dynamic-access-evolved.detail.conditions.buttonAddOrGroup') }}
-        </sw-button>        
+        </mt-button>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<sw-single-select
+<mt-select
     class="sw-condition-type-select sw-condition-type-select__select"
     :label-value="label"
     value-property="filterField"
@@ -27,11 +27,11 @@
     </torq-dynamic-access-evolved-manufacturer-filter>
 </div>
 
-<sw-button
+<mt-button
     size="small"
     @click="deleteAndCondition"
-    :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+    :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
 
 >
     {{ $tc('torq-dynamic-access-evolved.detail.conditions.buttonDeleteAndCondition') }}
-</sw-button>
+</mt-button>

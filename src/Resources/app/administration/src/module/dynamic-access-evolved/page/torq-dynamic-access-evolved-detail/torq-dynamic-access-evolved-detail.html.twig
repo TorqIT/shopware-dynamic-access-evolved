@@ -5,9 +5,9 @@
 	</template>
 
 	<template #smart-bar-actions>
-		<sw-button v-tooltip.bottom="tooltipCancel" class="torq-dynamic-access-evolved-detail__cancel-action" :disabled="dae !== null || undefined" @click="onCancel">
+		<mt-button v-tooltip.bottom="tooltipCancel" class="torq-dynamic-access-evolved-detail__cancel-action" :disabled="dae !== null || undefined" @click="onCancel">
 			{{ $tc('global.default.cancel') }}
-		</sw-button>
+		</mt-button>
 
 		<sw-button-process 
             v-model:processsuccess="isSaveSuccessful" 
@@ -25,7 +25,7 @@
 
 	<template #content>
 
-		<sw-card v-if="dae" position-identifier="torq-dynamic-access-evolved-detail-general" class="torq-dynamic-access-evolved-detail__card-general" :is-loading="isLoading" :title="$tc('torq-dynamic-access-evolved.detail.general.cardTitle')">
+		<mt-card v-if="dae" position-identifier="torq-dynamic-access-evolved-detail-general" class="torq-dynamic-access-evolved-detail__card-general" :is-loading="isLoading" :title="$tc('torq-dynamic-access-evolved.detail.general.cardTitle')">
 			<sw-container columns="2fr 1fr" gap="0 32px">
 				<mt-text-field
                     v-model="dae.name"
@@ -36,7 +36,7 @@
                 />
 			</sw-container>
 			<sw-container columns="1fr 1fr" gap="0 32px">
-				<sw-datepicker
+				<mt-datepicker
                     v-model="dae.validFrom"
                     class="torq-dynamic-access-evolved-detail__field-valid-from"
                     date-type="datetime"
@@ -44,7 +44,7 @@
                     :placeholder="$tc('torq-dynamic-access-evolved.detail.general.validFromPlaceholder')"
                     :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
                 />
-				<sw-datepicker
+				<mt-datepicker
                     v-model="dae.validUntil"
                     class="torq-dynamic-access-evolved-detail__field-valid-until"
                     date-type="datetime"
@@ -60,9 +60,9 @@
                 :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
                 bordered
             />
-		</sw-card>
+		</mt-card>
 
-		<sw-card v-if="dae && dae.filter" position-identifier="torq-dynamic-access-evolved-detail-conditions" class="torq-dynamic-access-evolved-detail__card-conditions" :is-loading="isLoading" :title="$tc('torq-dynamic-access-evolved.detail.conditions.cardTitle')">
+		<mt-card v-if="dae && dae.filter" position-identifier="torq-dynamic-access-evolved-detail-conditions" class="torq-dynamic-access-evolved-detail__card-conditions" :is-loading="isLoading" :title="$tc('torq-dynamic-access-evolved.detail.conditions.cardTitle')">
 			<torq-dynamic-access-evolved-sales-channel-select 
                 v-if="dae" 
                 v-model:collection="dae.daeSalesChannels" 
@@ -91,7 +91,7 @@
 				<strong>{{ canAccessLabel }}</strong>
 			</span>
 			<torq-dynamic-access-evolved-or-container :filter="dae.filter"/>
-		</sw-card>
+		</mt-card>
 
 	</template>
 </sw-page>
