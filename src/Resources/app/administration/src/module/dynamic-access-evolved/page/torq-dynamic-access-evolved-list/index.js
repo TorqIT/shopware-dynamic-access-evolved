@@ -121,5 +121,9 @@ export default {
         updateTotal({ total }) {
             this.total = total;
         },
+
+        onCreate() {
+            this.$router.push({ name: 'torq.dynamic.access.evolved.create' });
+        },
     },
 };

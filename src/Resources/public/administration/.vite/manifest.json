@@ -1,6 +1,6 @@
 {
   "main.js": {
-    "file": "assets/torq-dynamic-access-evolved-u-ZF-V9w.js",
+    "file": "assets/torq-dynamic-access-evolved-C4jz9a8s.js",
     "name": "torq-dynamic-access-evolved",
     "src": "main.js",
     "isEntry": true,
@@ -116,7 +116,7 @@
     ]
   },
   "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js": {
-    "file": "assets/index-C2xA9SW5.js",
+    "file": "assets/index-DxPI_g25.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js",
     "isDynamicEntry": true,

@@ -18,8 +18,8 @@
             v-tooltip="addButtonTooltip"
             class="torq-dynamic-access-evolved-list__smart-bar-button-add"
             variant="primary"
-            :router-link="{ name: 'torq.dynamic.access.evolved.create' }"
             :disabled="!acl.can('torq_dynamic_access_evolved.creator') || undefined"
+            @click="onCreate"
         >
 			{{ $tc('torq-dynamic-access-evolved.list.buttonAddDynamicAccessEvolved') }}
 		</mt-button>
@@ -61,8 +61,8 @@
                             v-tooltip="addButtonTooltip"
                             class="torq-dynamic-access-evolved-list__empty-state-button-add"
                             variant="primary"
-                            :router-link="{ name: 'torq.dynamic.access.evolved.create' }"
                             :disabled="!acl.can('torq_dynamic_access_evolved.creator') || undefined"
+                            @click="onCreate"
                         >
 							{{ $tc('torq-dynamic-access-evolved.list.buttonAddDynamicAccessEvolved') }}
 						</mt-button>
