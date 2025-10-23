@@ -27,7 +27,7 @@
 
 		<sw-card v-if="dae" position-identifier="torq-dynamic-access-evolved-detail-general" class="torq-dynamic-access-evolved-detail__card-general" :is-loading="isLoading" :title="$tc('torq-dynamic-access-evolved.detail.general.cardTitle')">
 			<sw-container columns="2fr 1fr" gap="0 32px">
-				<sw-text-field
+				<mt-text-field
                     v-model="dae.name"
                     class="torq-dynamic-access-evolved-detail__field-name"
                     :label="$tc('torq-dynamic-access-evolved.detail.general.nameLabel')"
