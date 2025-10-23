@@ -53,7 +53,7 @@
                     :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
                 />
 			</sw-container>
-			<sw-switch-field
+			<mt-switch
                 v-model="dae.active"
                 class="torq-dynamic-access-evolved-detail__field-active"
                 :label="$tc('torq-dynamic-access-evolved.detail.general.activeLabel')"
@@ -79,9 +79,9 @@
                 :placeholder="$tc('torq-dynamic-access-evolved.detail.conditions.customerRules.placeholderCustomerSelect')" 
                 :rule-scope="['dae_product_access']" 
                 rule-aware-group-key="torq-dynamic-access-evolved-customers"
-                :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+                :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
             />
-			<sw-switch-field
+			<mt-switch
                 name="linkToManufacturerLink"
                 v-model="dae.canOnlyAccess"
                 :label="$tc('torq-dynamic-access-evolved.detail.conditions.canOnlyAccess.labelCanOnlyAccess')"
