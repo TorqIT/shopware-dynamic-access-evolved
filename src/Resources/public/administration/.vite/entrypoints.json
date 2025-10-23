@@ -4,20 +4,21 @@
     "torq-dynamic-access-evolved": {
       "css": [],
       "dynamic": [
-        "/bundles/torqdynamicaccessevolved/administration/assets/index-CbkMqIbx.js",
-        "/bundles/torqdynamicaccessevolved/administration/assets/index-DAYAJncd.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-C2xA9SW5.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-NCsCnGyt.js",
         "/bundles/torqdynamicaccessevolved/administration/assets/index-Bg3gdU2N.js",
-        "/bundles/torqdynamicaccessevolved/administration/assets/index-u-PwT3Rq.js",
-        "/bundles/torqdynamicaccessevolved/administration/assets/index-xWUQCQp1.js",
-        "/bundles/torqdynamicaccessevolved/administration/assets/index-DS1TMK-c.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-HdN1axko.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-CaOSLtLW.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-CYdLZjWk.js",
         "/bundles/torqdynamicaccessevolved/administration/assets/index-mw5Jss1i.js",
         "/bundles/torqdynamicaccessevolved/administration/assets/index-Oh0rFXZB.js",
         "/bundles/torqdynamicaccessevolved/administration/assets/index-7S6RSUjE.js",
-        "/bundles/torqdynamicaccessevolved/administration/assets/index-BDHgFUde.js",
-        "/bundles/torqdynamicaccessevolved/administration/assets/index-Dkyn1RSQ.js"
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-CasqJbZQ.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-B2Vlbtp-.js",
+        "/bundles/torqdynamicaccessevolved/administration/assets/index-C8ro_rQ3.js"
       ],
       "js": [
-        "/bundles/torqdynamicaccessevolved/administration/assets/torq-dynamic-access-evolved-B3mZTniK.js"
+        "/bundles/torqdynamicaccessevolved/administration/assets/torq-dynamic-access-evolved-u-ZF-V9w.js"
       ],
       "legacy": false,
       "preload": []

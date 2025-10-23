@@ -9,6 +9,7 @@ Shopware.Component.register('torq-dynamic-access-evolved-filter', () => import('
 Shopware.Component.register('torq-dynamic-access-evolved-product-filter', () => import('./component/torq-dynamic-access-evolved-product-filter'));
 Shopware.Component.register('torq-dynamic-access-evolved-category-filter', () => import('./component/torq-dynamic-access-evolved-category-filter'));
 Shopware.Component.register('torq-dynamic-access-evolved-manufacturer-filter', () => import('./component/torq-dynamic-access-evolved-manufacturer-filter'));
+Shopware.Component.register('torq-dynamic-access-evolved-product-stream-filter', () => import('./component/torq-dynamic-access-evolved-product-stream-filter'));
 Shopware.Component.register('torq-dynamic-access-evolved-sales-channel-select', () => import('./component/torq-dynamic-access-evolved-sales-channel-select'));
 Shopware.Component.register('torq-dynamic-access-evolved-rule-select', () => import('./component/torq-dynamic-access-evolved-rule-select'));
 

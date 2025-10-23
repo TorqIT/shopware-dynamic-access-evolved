@@ -1,6 +1,6 @@
 {
   "main.js": {
-    "file": "assets/torq-dynamic-access-evolved-B3mZTniK.js",
+    "file": "assets/torq-dynamic-access-evolved-u-ZF-V9w.js",
     "name": "torq-dynamic-access-evolved",
     "src": "main.js",
     "isEntry": true,
@@ -14,12 +14,13 @@
       "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-product-filter/index.js",
       "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-category-filter/index.js",
       "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-manufacturer-filter/index.js",
+      "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-product-stream-filter/index.js",
       "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-sales-channel-select/index.js",
       "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-rule-select/index.js"
     ]
   },
   "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-and-container/index.js": {
-    "file": "assets/index-xWUQCQp1.js",
+    "file": "assets/index-CaOSLtLW.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-and-container/index.js",
     "isDynamicEntry": true,
@@ -46,7 +47,7 @@
     ]
   },
   "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-filter/index.js": {
-    "file": "assets/index-DS1TMK-c.js",
+    "file": "assets/index-CYdLZjWk.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-filter/index.js",
     "isDynamicEntry": true,
@@ -64,7 +65,7 @@
     ]
   },
   "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-or-container/index.js": {
-    "file": "assets/index-u-PwT3Rq.js",
+    "file": "assets/index-HdN1axko.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-or-container/index.js",
     "isDynamicEntry": true,
@@ -81,8 +82,17 @@
       "assets/index-tn0RQdqM.css"
     ]
   },
+  "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-product-stream-filter/index.js": {
+    "file": "assets/index-CasqJbZQ.js",
+    "name": "index",
+    "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-product-stream-filter/index.js",
+    "isDynamicEntry": true,
+    "css": [
+      "assets/index-tn0RQdqM.css"
+    ]
+  },
   "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-rule-select/index.js": {
-    "file": "assets/index-Dkyn1RSQ.js",
+    "file": "assets/index-C8ro_rQ3.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-rule-select/index.js",
     "isDynamicEntry": true,
@@ -91,13 +101,13 @@
     ]
   },
   "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-sales-channel-select/index.js": {
-    "file": "assets/index-BDHgFUde.js",
+    "file": "assets/index-B2Vlbtp-.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/component/torq-dynamic-access-evolved-sales-channel-select/index.js",
     "isDynamicEntry": true
   },
   "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js": {
-    "file": "assets/index-DAYAJncd.js",
+    "file": "assets/index-NCsCnGyt.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js",
     "isDynamicEntry": true,
@@ -106,7 +116,7 @@
     ]
   },
   "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js": {
-    "file": "assets/index-CbkMqIbx.js",
+    "file": "assets/index-C2xA9SW5.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js",
     "isDynamicEntry": true,

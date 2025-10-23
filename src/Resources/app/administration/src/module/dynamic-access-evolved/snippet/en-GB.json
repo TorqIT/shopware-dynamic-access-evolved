@@ -55,9 +55,10 @@
                 "buttonAddAndCondition": "Add AND Condition",
                 "buttonDeleteAndCondition": "Delete AND Condition",
                 "and": "AND",
-                "product": "Product",                
-                "manufacturer": "Manufacturer",                
-                "category": "Category"                
+                "product": "Product",
+                "manufacturer": "Manufacturer",
+                "category": "Category",
+                "productStream": "Product Stream"                
             }
         }
     },

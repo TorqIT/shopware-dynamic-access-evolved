@@ -2,11 +2,16 @@
 
 namespace Torq\Shopware\DynamicAccessEvolved\Elasticsearch;
 
+use Doctrine\DBAL\ArrayParameterType;
 use OpenSearchDSL\BuilderInterface;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Elasticsearch\Framework\AbstractElasticsearchDefinition;
+use Doctrine\DBAL\Connection;
+use Shopware\Core\Framework\DataAbstractionLayer\Doctrine\FetchModeHelper;
+use Shopware\Elasticsearch\Framework\ElasticsearchIndexingUtils;
 
 /**
  * Decorates the ElasticsearchProductDefinition to add streamIds field to the index mapping.
@@ -20,7 +25,8 @@ use Shopware\Elasticsearch\Framework\AbstractElasticsearchDefinition;
 class TorqElasticsearchProductDefinition extends AbstractElasticsearchDefinition
 {
     public function __construct(
-        private readonly AbstractElasticsearchDefinition $decorated
+        private readonly AbstractElasticsearchDefinition $decorated,
+        private readonly Connection $connection
     ) {
     }
 
@@ -54,15 +60,32 @@ class TorqElasticsearchProductDefinition extends AbstractElasticsearchDefinition
         return $this->decorated->buildTermQuery($context, $criteria);
     }
 
-    /**
-     * Delegate to decorated instance
-     *
-     * Note: The streamIds field is already included in the base fetch because it exists
-     * on the ProductEntity and is populated by ProductStreamUpdater. We just need to
-     * ensure the mapping exists (via getMapping()) so it gets indexed.
-     */
-    public function fetch(array $ids, Context $context): array
+   public function fetch(array $ids, Context $context): array
     {
-        return $this->decorated->fetch($ids, $context);
+        $documents = $this->decorated->fetch($ids, $context);
+
+        $uuids = \array_map(fn ($id): string => Uuid::fromBytesToHex($id), $ids);
+      
+        $streams = $this->fetchStreams($uuids);
+
+        foreach ($documents as &$document) {
+            $documentId = $document['id'];
+
+            if (isset($streams[$documentId])) {
+                $streamIds = ElasticsearchIndexingUtils::parseJson($streams[$documentId], 'stream_ids');
+                $document['streamIds'] = $streamIds;
+            }
+        }
+
+        return $documents;
+    }
+
+    private function fetchStreams(array $productIds = []): array
+    {
+        $sql = 'SELECT LOWER(HEX(id)) as id, stream_ids FROM product WHERE id in (?)';
+
+        $data = $this->connection->fetchAllAssociative($sql, [Uuid::fromHexToBytesList($productIds)], [ArrayParameterType::STRING]);
+
+        return FetchModeHelper::groupUnique($data);
     }
 }

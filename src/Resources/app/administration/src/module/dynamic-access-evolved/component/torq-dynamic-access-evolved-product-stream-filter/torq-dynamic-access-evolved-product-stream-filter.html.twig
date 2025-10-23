@@ -1,0 +1,12 @@
+<sw-entity-multi-select
+    entity="product_stream"
+    size="medium"
+    :entity-collection="productStreams"
+    :criteria="productStreamCriteria"
+    resultLimit="100"
+    :context="productStreamContext"
+    @update:entity-collection="setIds"
+    :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
+    :selectionDisablingMethod="isSelectionDisabled"
+>
+</sw-entity-multi-select>

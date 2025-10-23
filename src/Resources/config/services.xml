@@ -47,6 +47,7 @@
                  decorates="Shopware\Elasticsearch\Product\ElasticsearchProductDefinition"
                  decoration-priority="-1000">
             <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Elasticsearch\TorqElasticsearchProductDefinition.inner"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
         </service>
 
     </services>
