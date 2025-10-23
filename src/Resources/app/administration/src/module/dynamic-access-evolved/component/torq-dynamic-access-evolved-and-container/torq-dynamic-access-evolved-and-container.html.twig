@@ -17,7 +17,7 @@
 
     <div class="torq-dynamic-access-evolved-and-container__actions">
         <mt-button
-            variant="ghost"
+            variant="action"
             size="small"
             class="torq-dynamic-access-evolved-and-container__actions--and"
             @click="onAddAndCondition"
@@ -28,6 +28,7 @@
 
         <mt-button
             size="small"
+            variant="critical"
             class="torq-dynamic-access-evolved-and-container__actions--delete"
             @click="onDeleteOrCondition"
             :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
