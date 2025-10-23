@@ -9,15 +9,14 @@
 			{{ $tc('global.default.cancel') }}
 		</mt-button>
 
-		<sw-button-process 
-            v-model:processsuccess="isSaveSuccessful" 
-            v-tooltip.bottom="tooltipSave" 
-            class="torq-dynamic-access-evolved-detail__save-action" 
-            variant="primary" 
-            :is-loading="isLoading" 
-            :disabled="isLoading || !acl.can('torq_dynamic_access_evolved.editor') || undefined" 
-            :process-success="isSaveSuccessful" 
-            @update:process-success="saveFinish" 
+		<sw-button-process
+            v-model:processSuccess="isSaveSuccessful"
+            v-tooltip.bottom="tooltipSave"
+            class="torq-dynamic-access-evolved-detail__save-action"
+            variant="primary"
+            :is-loading="isLoading"
+            :disabled="isLoading || !acl.can('torq_dynamic_access_evolved.editor') || undefined"
+            @update:processSuccess="saveFinish"
             @click.prevent="onSave">
 			{{ $tc('global.default.save') }}
 		</sw-button-process>
