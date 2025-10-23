@@ -42,5 +42,12 @@
             <argument type="service" id="custom_field_set_relation.repository"/>
         </service> -->
 
+        <!-- Elasticsearch Product Definition Decorator to add streamIds field -->
+        <service id="Torq\Shopware\DynamicAccessEvolved\Elasticsearch\TorqElasticsearchProductDefinition"
+                 decorates="Shopware\Elasticsearch\Product\ElasticsearchProductDefinition"
+                 decoration-priority="-1000">
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Elasticsearch\TorqElasticsearchProductDefinition.inner"/>
+        </service>
+
     </services>
 </container>
