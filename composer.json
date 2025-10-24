@@ -2,7 +2,7 @@
     "name": "torq/dynamic-access-evolved",
     "description": "torq/dynamic-access-evolved",
     "type": "shopware-platform-plugin",
-    "version": "1.0.0",
+    "version": "dev-feature/6.7-stabalize",
     "license": "MIT",
     "require": {
         "shopware/core": "^6.7.0"
