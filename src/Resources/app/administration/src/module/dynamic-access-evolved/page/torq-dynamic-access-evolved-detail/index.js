@@ -59,27 +59,10 @@ export default {
         },              
         daeCriteria() {
             const criteria = (new Criteria(1, 1))
-              //  .addAssociation('discounts.promotionDiscountPrices')
-                //.addAssociation('discounts.discountRules')
-                //.addAssociation('salesChannels');
-            ;
-
-            // criteria.getAssociation('discounts')
-            //     .addSorting(Criteria.sort('createdAt', 'ASC'));
-
-            // criteria.getAssociation('individualCodes');
 
             return criteria;
         },
         tooltipSave() {
-            // if (!this.acl.can('promotion.editor')) {
-            //     return {
-            //         message: this.$tc('sw-privileges.tooltip.warning'),
-            //         disabled: this.acl.can('category.editor'),
-            //         showOnDisabledElements: true,
-            //     };
-            // }
-
             const systemKey = this.$device.getSystemKey();
 
             return {
@@ -94,7 +77,6 @@ export default {
             };
         },
         canAccessLabel(){
-
             if(!this.dae){
                 return '';
             }
@@ -112,7 +94,9 @@ export default {
         },
         dae: function (newValue){
             if(newValue && !newValue.filter){
-                newValue.filter = Criteria.multi('OR', []);
+                newValue.filter = Criteria.multi('OR', [
+                    Criteria.multi('AND',[Criteria.equalsAny('', [])])
+                ]);
             }
         }
     },
