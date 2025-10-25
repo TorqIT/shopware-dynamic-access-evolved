@@ -46,7 +46,9 @@ export default {
 
     methods: {
         addCondition() {
-            this.filter.queries.push(Criteria.multi('AND', []));
+            this.filter.queries.push(Criteria.multi('AND', [
+                Criteria.equalsAny('', [])
+            ]));
         },
         onDeleteOrCondition(index){
             this.filter.queries.splice(index, 1);
