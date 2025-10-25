@@ -22,7 +22,7 @@ import enGB from './snippet/en-GB';
 Shopware.Module.register('torq-dynamic-access-evolved', {
     type: 'plugin',
     name: 'Dynamic Access Evolved',
-    title: 'dynamic-access-evolved.general.mainMenuItemGeneral',
+    title: 'torq-dynamic-access-evolved.general.mainMenuItemGeneral',
     description: 'sw-property.general.descriptionTextModule',
     color: '#ff3d58',
     icon: 'regular-products',
