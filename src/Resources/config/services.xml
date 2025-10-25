@@ -12,11 +12,19 @@
             <argument type="service" id="Shopware\Core\Content\Product\ProductDefinition"/>
             <argument type="service" id="Shopware\Core\Content\Product\SalesChannel\SalesChannelProductDefinition"/>
             <argument type="service" id="product.repository"/>
+            <argument type="service" id="Shopware\Core\Content\Product\Aggregate\ProductManufacturer\ProductManufacturerDefinition"/>
         </service>
 
         <!-- Product Process Criteria Event Subscriber -->
         <service id="Torq\Shopware\DynamicAccessEvolved\Subscriber\DynamicAccessEvolvedSubscriber">
             <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Service\AccessRuleService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <!-- Manufacturer Access Event Subscriber - Applies access rules to manufacturer queries -->
+        <service id="Torq\Shopware\DynamicAccessEvolved\Subscriber\ManufacturerAccessSubscriber">
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Service\AccessRuleService"/>
+            <argument type="service" id="request_stack"/>
             <tag name="kernel.event_subscriber"/>
         </service>
 

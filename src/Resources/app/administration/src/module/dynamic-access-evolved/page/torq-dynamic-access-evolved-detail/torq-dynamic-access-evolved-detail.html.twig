@@ -90,6 +90,15 @@
 				<strong>{{ canAccessLabel }}</strong>
 			</span>
 			<torq-dynamic-access-evolved-or-container :filter="dae.filter"/>
+
+			<sw-alert
+				v-if="isSimpleManufacturerRule"
+				variant="warning"
+				appearance="system"
+				class="torq-manufacturer-restriction-notice"
+				style="margin-top: 20px;">
+				{{ $tc('torq-dynamic-access-evolved.manufacturerFilter.accessRestrictionWarning') }}
+			</sw-alert>
 		</mt-card>
 
 	</template>

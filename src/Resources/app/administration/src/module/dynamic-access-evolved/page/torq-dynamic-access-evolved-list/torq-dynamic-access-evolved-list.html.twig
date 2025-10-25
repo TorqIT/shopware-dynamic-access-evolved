@@ -28,7 +28,7 @@
 	<template #content>
 		<div class="torq-dynamic-access-evolved-list__content">
 
-			<sw-entity-listing v-if="entitySearchable" :repository="dynamicAccessEvolvedRepository" :columns="dynamicAccessEvolvedColumns" :items="dynamicAccessEvolved" detail-route="torq.dynamic.access.evolved.detail" :is-loading="isLoading" {# :allow-inline-edit="acl.can('promotion.editor') || undefined" #} {# :show-selection="acl.can('promotion.deleter') || undefined" #} {# :allow-edit="acl.can('promotion.editor') || undefined" #} {# :allow-view="acl.can('promotion.viewer') || undefined" #} allow-column-edit full-page @update-records="updateTotal">
+			<sw-entity-listing v-if="entitySearchable" :repository="dynamicAccessEvolvedRepository" :columns="dynamicAccessEvolvedColumns" :items="dynamicAccessEvolved" detail-route="torq.dynamic.access.evolved.detail" :is-loading="isLoading" allow-column-edit full-page @update-records="updateTotal">
 				<template #column-active="{ item }">
 					<mt-icon v-if="item.active" class="torq-dynamic-access-evolved-list__icon-activity is--active" name="regular-checkmark-xs"/>
 					<mt-icon v-else class="torq-dynamic-access-evolved-list__icon-activity is--inactive" name="regular-times-s"/>

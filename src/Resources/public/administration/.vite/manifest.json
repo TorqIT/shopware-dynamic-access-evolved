@@ -1,6 +1,10 @@
 {
+  "_manufacturer-rule-helper-1MCPEy6b.js": {
+    "file": "assets/manufacturer-rule-helper-1MCPEy6b.js",
+    "name": "manufacturer-rule-helper"
+  },
   "main.js": {
-    "file": "assets/torq-dynamic-access-evolved-C2oY_zg_.js",
+    "file": "assets/torq-dynamic-access-evolved-dL4AJv7H.js",
     "name": "torq-dynamic-access-evolved",
     "src": "main.js",
     "isEntry": true,
@@ -107,19 +111,25 @@
     "isDynamicEntry": true
   },
   "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js": {
-    "file": "assets/index-B7dyzRN5.js",
+    "file": "assets/index-BfTMGiTn.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js",
     "isDynamicEntry": true,
+    "imports": [
+      "_manufacturer-rule-helper-1MCPEy6b.js"
+    ],
     "css": [
       "assets/index-DYXcuplM.css"
     ]
   },
   "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js": {
-    "file": "assets/index-DxPI_g25.js",
+    "file": "assets/index-DmbZa6HY.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js",
     "isDynamicEntry": true,
+    "imports": [
+      "_manufacturer-rule-helper-1MCPEy6b.js"
+    ],
     "css": [
       "assets/index-x9ygovC2.css"
     ]

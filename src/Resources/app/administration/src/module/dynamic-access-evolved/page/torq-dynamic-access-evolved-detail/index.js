@@ -1,5 +1,6 @@
 import template from './torq-dynamic-access-evolved-detail.html.twig';
 import './torq-dynamic-access-evolved-detail.scss';
+import { isSimpleManufacturerRule } from '../../utils/manufacturer-rule-helper';
 
 /**
  * @package checkout
@@ -85,6 +86,15 @@ export default {
             }
             return this.$tc('torq-dynamic-access-evolved.detail.conditions.canOnlyAccess.cannotAccess');
 
+        },
+        isSimpleManufacturerRule() {
+            // Check if the entire rule is a simple manufacturer rule
+            // This matches the backend logic: single OR container with single AND condition containing only manufacturer filters
+            if (!this.dae || !this.dae.filter) {
+                return false;
+            }
+
+            return isSimpleManufacturerRule(this.dae.filter);
         }
     },
 
@@ -191,7 +201,6 @@ export default {
         },
         onCancel() {
             this.$router.push({ name: 'torq.dynamic.access.evolved.list' });
-        },
-
+        }
     },
 };
