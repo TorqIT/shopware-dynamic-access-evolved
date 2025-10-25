@@ -21,15 +21,11 @@
         </service>
 
         <!-- Available Combination Loader Decorator - Filters configurator settings by access rules -->
-        <service id="Torq\Shopware\DynamicAccessEvolved\Decorator\AccessFilteredCombinationLoader"
+        <service id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Detail\AvailableCombinationLoaderDecorator"
                  decorates="Shopware\Core\Content\Product\SalesChannel\Detail\AvailableCombinationLoader">
-            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Decorator\AccessFilteredCombinationLoader.inner"/>
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Detail\AvailableCombinationLoaderDecorator.inner"/>
             <argument type="service" id="Doctrine\DBAL\Connection"/>
             <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Service\AccessRuleService"/>
-        </service>
-
-        <service id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\ExampleRoute">
-            <argument type="service" id="product.repository"/>
         </service>
 
         <service id="Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition">

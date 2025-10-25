@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Torq\Shopware\DynamicAccessEvolved\Decorator;
+namespace Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Detail;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Content\Product\SalesChannel\Detail\AbstractAvailableCombinationLoader;
@@ -10,7 +10,7 @@ use Shopware\Core\Framework\Uuid\Uuid;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Torq\Shopware\DynamicAccessEvolved\Service\AccessRuleService;
 
-class AccessFilteredCombinationLoader extends AbstractAvailableCombinationLoader
+class AvailableCombinationLoaderDecorator extends AbstractAvailableCombinationLoader
 {
     public function __construct(
         private readonly AbstractAvailableCombinationLoader $decorated,
