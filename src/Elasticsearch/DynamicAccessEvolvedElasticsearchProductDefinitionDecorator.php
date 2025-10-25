@@ -52,7 +52,7 @@ class DynamicAccessEvolvedElasticsearchProductDefinitionDecorator extends Abstra
         return $this->decorated->buildTermQuery($context, $criteria);
     }
 
-   public function fetch(array $ids, Context $context): array
+    public function fetch(array $ids, Context $context): array
     {
         $documents = $this->decorated->fetch($ids, $context);
 

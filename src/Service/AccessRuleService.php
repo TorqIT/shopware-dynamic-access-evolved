@@ -76,7 +76,7 @@ class AccessRuleService
         // Filter by sales channel
         $criteria->addFilter(new EqualsAnyFilter('daeSalesChannels.id', [$context->getSalesChannelId()]));
 
-        $criteria->setLimit(25);
+        $criteria->setLimit(50);
 
         $iterator = new RepositoryIterator(
             $this->dynamicAccessEvolvedRepository,
