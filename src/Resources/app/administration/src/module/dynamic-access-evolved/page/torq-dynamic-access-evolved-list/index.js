@@ -1,5 +1,6 @@
 import template from './torq-dynamic-access-evolved-list.html.twig';
 import './torq-dynamic-access-evolved-list.scss';
+import { isSimpleManufacturerRule } from '../../utils/manufacturer-rule-helper';
 
 const { Mixin } = Shopware;
 const { Criteria } = Shopware.Data;
@@ -79,6 +80,12 @@ export default {
             return this.dynamicAccessEvolvedRepository.search(criteria).then((searchResult) => {
                 this.isLoading = false;
                 this.total = searchResult.total;
+
+                // Add computed restrictsManufacturers property to each item
+                searchResult.forEach(item => {
+                    item.restrictsManufacturers = this.restrictsManufacturers(item);
+                });
+
                 this.dynamicAccessEvolved = searchResult;
 
                 return this.dynamicAccessEvolved;
@@ -115,11 +122,40 @@ export default {
                 inlineEdit: 'date',
                 allowResize: true,
                 align: 'center',
+            }, {
+                property: 'restrictsManufacturers',
+                label: 'torq-dynamic-access-evolved.list.columnRestrictsManufacturers',
+                allowResize: true,
+                align: 'center',
+                sortable: false,
             }];
         },
 
         updateTotal({ total }) {
             this.total = total;
+        },
+
+        onCreate() {
+            this.$router.push({ name: 'torq.dynamic.access.evolved.create' });
+        },
+
+        /**
+         * Check if a rule restricts manufacturers (client-side computation)
+         * Returns true if the rule is a simple manufacturer rule
+         */
+        restrictsManufacturers(rule) {
+            if (!rule.filter) {
+                return false;
+            }
+
+            try {
+                const filter = typeof rule.filter === 'string'
+                    ? JSON.parse(rule.filter)
+                    : rule.filter;
+                return isSimpleManufacturerRule(filter);
+            } catch (e) {
+                return false;
+            }
         },
     },
 };

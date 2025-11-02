@@ -56,14 +56,6 @@ export default {
                 ruleAwareGroupKey: this.ruleAwareGroupKey,
             };
         },
-
-        listeners() {
-            if (this.isCompatEnabled('INSTANCE_LISTENERS')) {
-                return this.$listeners;
-            }
-
-            return {};
-        },
     },
 
     methods: {

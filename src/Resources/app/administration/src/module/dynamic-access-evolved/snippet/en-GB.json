@@ -13,8 +13,12 @@
             "columnActive": "Active",
             "columnValidFrom": "Valid From",
             "columnValidUntil": "Valid Until",
+            "columnRestrictsManufacturers": "Restricts Manufacturers",
             "titleEmpty": "No Rules",
             "descriptionEmpty": "Create product access rules"
+        },
+        "manufacturerFilter": {
+            "accessRestrictionWarning": "⚠️ This rule will restrict direct access to these manufacturers for affected customers (e.g., supplier listings, manufacturer pages). This only applies to simple manufacturer rules without additional filters."
         },
         "detail":{
             "header":{
@@ -55,9 +59,10 @@
                 "buttonAddAndCondition": "Add AND Condition",
                 "buttonDeleteAndCondition": "Delete AND Condition",
                 "and": "AND",
-                "product": "Product",                
-                "manufacturer": "Manufacturer",                
-                "category": "Category"                
+                "product": "Product",
+                "manufacturer": "Manufacturer",
+                "category": "Category",
+                "productStream": "Product Stream"                
             }
         }
     },

@@ -6,15 +6,34 @@
 
     <services>
 
-        <service id="Torq\Shopware\DynamicAccessEvolved\Subscriber\DynamicAccessEvolvedSubscriber">
+        <!-- Access Rule Service - Handles rule matching and filter application -->
+        <service id="Torq\Shopware\DynamicAccessEvolved\Service\AccessRuleService">
             <argument type="service" id="torq_dynamic_access_evolved.repository"/>
             <argument type="service" id="Shopware\Core\Content\Product\ProductDefinition"/>
             <argument type="service" id="Shopware\Core\Content\Product\SalesChannel\SalesChannelProductDefinition"/>
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="Shopware\Core\Content\Product\Aggregate\ProductManufacturer\ProductManufacturerDefinition"/>
+        </service>
+
+        <!-- Product Process Criteria Event Subscriber -->
+        <service id="Torq\Shopware\DynamicAccessEvolved\Subscriber\DynamicAccessEvolvedSubscriber">
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Service\AccessRuleService"/>
             <tag name="kernel.event_subscriber"/>
         </service>
 
-        <service id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\ExampleRoute">
-            <argument type="service" id="product.repository"/>
+        <!-- Manufacturer Access Event Subscriber - Applies access rules to manufacturer queries -->
+        <service id="Torq\Shopware\DynamicAccessEvolved\Subscriber\ManufacturerAccessSubscriber">
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Service\AccessRuleService"/>
+            <argument type="service" id="request_stack"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <!-- Available Combination Loader Decorator - Filters configurator settings by access rules -->
+        <service id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Detail\AvailableCombinationLoaderDecorator"
+                 decorates="Shopware\Core\Content\Product\SalesChannel\Detail\AvailableCombinationLoader">
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Core\Content\Product\SalesChannel\Detail\AvailableCombinationLoaderDecorator.inner"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Service\AccessRuleService"/>
         </service>
 
         <service id="Torq\Shopware\DynamicAccessEvolved\Entity\DynamicAccessEvolved\DynamicAccessEvolvedDefinition">
@@ -37,10 +56,13 @@
             <tag name="shopware.entity.extension" />
         </service>
 
-        <!-- <service id="Torq\Shopware\DynamicAccessEvolved\Service\CustomFieldsInstaller">
-            <argument type="service" id="custom_field_set.repository"/>
-            <argument type="service" id="custom_field_set_relation.repository"/>
-        </service> -->
+        <!-- Elasticsearch Product Definition Decorator to add streamIds field -->
+        <service id="Torq\Shopware\DynamicAccessEvolved\Elasticsearch\DynamicAccessEvolvedElasticsearchProductDefinitionDecorator"
+                 decorates="Shopware\Elasticsearch\Product\ElasticsearchProductDefinition"
+                 decoration-priority="-1000">
+            <argument type="service" id="Torq\Shopware\DynamicAccessEvolved\Elasticsearch\DynamicAccessEvolvedElasticsearchProductDefinitionDecorator.inner"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+        </service>
 
     </services>
 </container>

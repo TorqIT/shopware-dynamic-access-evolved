@@ -1,5 +1,6 @@
 import template from './torq-dynamic-access-evolved-detail.html.twig';
 import './torq-dynamic-access-evolved-detail.scss';
+import { isSimpleManufacturerRule } from '../../utils/manufacturer-rule-helper';
 
 /**
  * @package checkout
@@ -59,27 +60,10 @@ export default {
         },              
         daeCriteria() {
             const criteria = (new Criteria(1, 1))
-              //  .addAssociation('discounts.promotionDiscountPrices')
-                //.addAssociation('discounts.discountRules')
-                //.addAssociation('salesChannels');
-            ;
-
-            // criteria.getAssociation('discounts')
-            //     .addSorting(Criteria.sort('createdAt', 'ASC'));
-
-            // criteria.getAssociation('individualCodes');
 
             return criteria;
         },
         tooltipSave() {
-            // if (!this.acl.can('promotion.editor')) {
-            //     return {
-            //         message: this.$tc('sw-privileges.tooltip.warning'),
-            //         disabled: this.acl.can('category.editor'),
-            //         showOnDisabledElements: true,
-            //     };
-            // }
-
             const systemKey = this.$device.getSystemKey();
 
             return {
@@ -94,7 +78,6 @@ export default {
             };
         },
         canAccessLabel(){
-
             if(!this.dae){
                 return '';
             }
@@ -103,6 +86,15 @@ export default {
             }
             return this.$tc('torq-dynamic-access-evolved.detail.conditions.canOnlyAccess.cannotAccess');
 
+        },
+        isSimpleManufacturerRule() {
+            // Check if the entire rule is a simple manufacturer rule
+            // This matches the backend logic: single OR container with single AND condition containing only manufacturer filters
+            if (!this.dae || !this.dae.filter) {
+                return false;
+            }
+
+            return isSimpleManufacturerRule(this.dae.filter);
         }
     },
 
@@ -112,7 +104,9 @@ export default {
         },
         dae: function (newValue){
             if(newValue && !newValue.filter){
-                newValue.filter = Criteria.multi('OR', []);
+                newValue.filter = Criteria.multi('OR', [
+                    Criteria.multi('AND',[Criteria.equalsAny('', [])])
+                ]);
             }
         }
     },
@@ -207,7 +201,6 @@ export default {
         },
         onCancel() {
             this.$router.push({ name: 'torq.dynamic.access.evolved.list' });
-        },
-
+        }
     },
 };

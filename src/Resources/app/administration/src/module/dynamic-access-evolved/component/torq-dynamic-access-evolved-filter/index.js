@@ -46,6 +46,10 @@ export default {
                 {
                     filterField: 'manufacturer.id',
                     filterName: this.$tc('torq-dynamic-access-evolved.detail.conditions.manufacturer')
+                },
+                {
+                    filterField: 'streamIds',
+                    filterName: this.$tc('torq-dynamic-access-evolved.detail.conditions.productStream')
                 }
             ],
             selectedFilter:'id'

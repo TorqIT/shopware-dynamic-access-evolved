@@ -1,11 +1,11 @@
-<sw-single-select
+<mt-select
     class="sw-condition-type-select sw-condition-type-select__select"
     :label-value="label"
     value-property="filterField"
     label-property="filterName"
     :options="filterTypes"
-    v-model:value="filter.field"
-    :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+    v-model="filter.field"
+    :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
 />
 
 <div v-if="filter.field === 'id'">
@@ -26,12 +26,19 @@
     >
     </torq-dynamic-access-evolved-manufacturer-filter>
 </div>
+<div v-else-if="filter.field === 'streamIds'">
+    <torq-dynamic-access-evolved-product-stream-filter
+        :filter="filter"
+    >
+    </torq-dynamic-access-evolved-product-stream-filter>
+</div>
 
-<sw-button
+<mt-button
     size="small"
+    variant="critical"
     @click="deleteAndCondition"
-    :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+    :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
 
 >
     {{ $tc('torq-dynamic-access-evolved.detail.conditions.buttonDeleteAndCondition') }}
-</sw-button>
+</mt-button>

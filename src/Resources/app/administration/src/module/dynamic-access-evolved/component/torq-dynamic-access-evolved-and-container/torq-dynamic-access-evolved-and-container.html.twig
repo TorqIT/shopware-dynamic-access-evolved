@@ -7,7 +7,7 @@
         >
             {{ $tc('torq-dynamic-access-evolved.detail.conditions.and') }}
         </div>
-        <torq-dynamic-access-evolved-filter 
+        <torq-dynamic-access-evolved-filter
             :filter="q"
             :index="index"
             @delete-and-condition="onDeleteAndCondition"
@@ -16,23 +16,24 @@
     </template>
 
     <div class="torq-dynamic-access-evolved-and-container__actions">
-        <sw-button
-            variant="ghost"
+        <mt-button
+            variant="action"
             size="small"
             class="torq-dynamic-access-evolved-and-container__actions--and"
             @click="onAddAndCondition"
-            :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+            :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
         >
             {{ $tc('torq-dynamic-access-evolved.detail.conditions.buttonAddAndCondition') }}
-        </sw-button>
+        </mt-button>
 
-        <sw-button
+        <mt-button
             size="small"
+            variant="critical"
             class="torq-dynamic-access-evolved-and-container__actions--delete"
             @click="onDeleteOrCondition"
-            :disabled="!acl.can('torq_dynamic_access_evolved.editor')" 
+            :disabled="!acl.can('torq_dynamic_access_evolved.editor')"
         >
             {{ $tc('torq-dynamic-access-evolved.detail.conditions.buttonDeleteOrGroup') }}
-        </sw-button>
+        </mt-button>
     </div>
 </div>

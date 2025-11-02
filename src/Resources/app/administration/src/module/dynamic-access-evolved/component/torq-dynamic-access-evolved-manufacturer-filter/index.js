@@ -31,7 +31,7 @@ export default {
         }
     },
 
-    computed: {        
+    computed: {
         manufacturerCriteria() {
             const criteria = new Criteria(1, 100);
             criteria.addSorting(Criteria.sort('name'));
@@ -98,13 +98,13 @@ export default {
         setIds(manufacturerCollection) {
             this.manufacturerIds = manufacturerCollection.getIds();
             this.manufacturers = manufacturerCollection;
-            
+
             const manufacturerIds = manufacturerCollection.getIds();
-            
+
             // Use proper Criteria structure like the category filter does
             this.filter.type = "multi";
             this.filter.operator = "or";
-            
+
             this.filter.queries = [
                 Criteria.equalsAny('manufacturer.id', manufacturerIds)
             ];
