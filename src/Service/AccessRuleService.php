@@ -147,7 +147,7 @@ class AccessRuleService
         // Build criteria to find accessible variants
         $criteria = new Criteria();
         $criteria->addFilter(new EqualsFilter('parentId', $parentProductId));
-        $criteria->setLimit(500); // Safeguard against accidentally loading too many
+        $criteria->setLimit(5000); // Safeguard against accidentally loading too many
 
         // Apply access rule filters
         foreach($rules as $rule) {
@@ -178,7 +178,7 @@ class AccessRuleService
     {
         $criteria = new Criteria();
         $criteria->addFilter(new EqualsFilter('parentId', $parentProductId));
-        $criteria->setLimit(500); // Safeguard
+        $criteria->setLimit(5000); // Safeguard
 
         $result = $this->productRepository->searchIds($criteria, $context->getContext());
 
