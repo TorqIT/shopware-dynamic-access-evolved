@@ -16,8 +16,10 @@ Shopware.Component.register('torq-dynamic-access-evolved-rule-select', () => imp
 import './acl';
 import defaultSearchConfiguration from './default-search-configuration';
 
-import deDE from './snippet/de-DE';
-import enGB from './snippet/en-GB';
+// Files are named by base language (de.json / en.json), not by full locale, so the
+// backend SnippetFinder also serves them to country variants such as en-CA / de-AT.
+import deDE from './snippet/de.json';
+import enGB from './snippet/en.json';
 
 Shopware.Module.register('torq-dynamic-access-evolved', {
     type: 'plugin',
