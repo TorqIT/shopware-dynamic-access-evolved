@@ -16,6 +16,13 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\OrFilter;
 
 class AccessRuleFilter extends MultiFilter
 {
+    private const MANUFACTURER_FIELDS = [
+        'manufacturer.id',
+        'product.manufacturer.id',
+        'manufacturerId',
+        'product.manufacturerId',
+    ];
+
     /**
      * @param string[] $ruleIds
      */
@@ -65,12 +72,9 @@ class AccessRuleFilter extends MultiFilter
      */
     private function containsManufacturerFilter(Filter $filter): bool
     {
-        // Check direct manufacturer filters
-        if ($filter instanceof EqualsFilter && ($filter->getField() === 'manufacturer.id' || $filter->getField() === 'product.manufacturer.id')) {
-            return true;
-        }
-        
-        if ($filter instanceof EqualsAnyFilter && ($filter->getField() === 'manufacturer.id' || $filter->getField() === 'product.manufacturer.id')) {
+        // Check direct manufacturer filters. Since 6.6.10.x the QueryStringParser normalizes
+        // "manufacturer.id" to the FK field "product.manufacturerId", so match both forms.
+        if (($filter instanceof EqualsFilter || $filter instanceof EqualsAnyFilter) && \in_array($filter->getField(), self::MANUFACTURER_FIELDS, true)) {
             return true;
         }
         
