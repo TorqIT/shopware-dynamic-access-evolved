@@ -18,6 +18,7 @@
             v-tooltip="addButtonTooltip"
             class="torq-dynamic-access-evolved-list__smart-bar-button-add"
             variant="primary"
+            size="default"
             :disabled="!acl.can('torq_dynamic_access_evolved.creator') || undefined"
             @click="onCreate"
         >

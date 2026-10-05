@@ -5,7 +5,7 @@
 	</template>
 
 	<template #smart-bar-actions>
-		<mt-button v-tooltip.bottom="tooltipCancel" class="torq-dynamic-access-evolved-detail__cancel-action" :disabled="dae !== null || undefined" @click="onCancel">
+		<mt-button v-tooltip.bottom="tooltipCancel" class="torq-dynamic-access-evolved-detail__cancel-action" :disabled="dae !== null || undefined" variant="secondary" size="default" @click="onCancel">
 			{{ $tc('global.default.cancel') }}
 		</mt-button>
 

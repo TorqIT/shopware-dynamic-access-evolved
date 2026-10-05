@@ -4,7 +4,7 @@
     "name": "manufacturer-rule-helper"
   },
   "main.js": {
-    "file": "assets/torq-dynamic-access-evolved-dL4AJv7H.js",
+    "file": "assets/torq-dynamic-access-evolved-DqrR2d6o.js",
     "name": "torq-dynamic-access-evolved",
     "src": "main.js",
     "isEntry": true,
@@ -111,7 +111,7 @@
     "isDynamicEntry": true
   },
   "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js": {
-    "file": "assets/index-BfTMGiTn.js",
+    "file": "assets/index-BIjnCYX3.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-detail/index.js",
     "isDynamicEntry": true,
@@ -123,7 +123,7 @@
     ]
   },
   "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js": {
-    "file": "assets/index-DmbZa6HY.js",
+    "file": "assets/index-DWJRQwxs.js",
     "name": "index",
     "src": "module/dynamic-access-evolved/page/torq-dynamic-access-evolved-list/index.js",
     "isDynamicEntry": true,
